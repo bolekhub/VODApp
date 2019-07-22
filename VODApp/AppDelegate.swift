@@ -102,7 +102,17 @@ extension AppDelegate{
         
         if let playList = userInfo["playlist"] as? NSDictionary {
             
-            debugPrint("Received ... \(playList)")
+            var plItems = Set<PlayListItemVO>()
+            
+            for (k, v) in playList  {
+                if let item = PlayListItemVO.fromDictionary(v as! NSDictionary, identifier: k as! String) {
+                    plItems.update(with: item)
+                }
+            }
+            
+            debugPrint("parsed \(plItems.count)")
         }
     }
+    
+    
 }
