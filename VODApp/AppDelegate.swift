@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        #if DEBUG
+         application.listenForRemoteNotifications()
+        #endif
         return true
     }
 
@@ -91,3 +94,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+//MARK: Remote notifications
+extension AppDelegate{
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        if let playList = userInfo["playlist"] as? NSDictionary {
+            
+            debugPrint("Received ... \(playList)")
+        }
+    }
+}

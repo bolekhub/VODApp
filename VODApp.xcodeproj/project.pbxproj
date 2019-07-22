@@ -14,6 +14,8 @@
 		0758524F22E5A2F3008CE1E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0758524E22E5A2F3008CE1E1 /* Assets.xcassets */; };
 		0758525222E5A2F3008CE1E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0758525022E5A2F3008CE1E1 /* LaunchScreen.storyboard */; };
 		0758525D22E5A2F3008CE1E1 /* VODAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758525C22E5A2F3008CE1E1 /* VODAppTests.swift */; };
+		0758527622E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758527522E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m */; };
+		0758527922E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758527722E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,11 @@
 		0758525822E5A2F3008CE1E1 /* VODAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VODAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0758525C22E5A2F3008CE1E1 /* VODAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VODAppTests.swift; sourceTree = "<group>"; };
 		0758525E22E5A2F3008CE1E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0758527322E5AA05008CE1E1 /* VODApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VODApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		0758527422E5AA05008CE1E1 /* ACSimulatorRemoteNotificationsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSimulatorRemoteNotificationsService.h; sourceTree = "<group>"; };
+		0758527522E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSimulatorRemoteNotificationsService.m; sourceTree = "<group>"; };
+		0758527722E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+SimulatorRemoteNotifications.m"; sourceTree = "<group>"; };
+		0758527822E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+SimulatorRemoteNotifications.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +135,7 @@
 		0758526A22E5A862008CE1E1 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				0758527222E5A9F2008CE1E1 /* SimRemoteNotifications */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -137,6 +145,18 @@
 			children = (
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		0758527222E5A9F2008CE1E1 /* SimRemoteNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				0758527822E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.h */,
+				0758527722E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.m */,
+				0758527422E5AA05008CE1E1 /* ACSimulatorRemoteNotificationsService.h */,
+				0758527522E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m */,
+				0758527322E5AA05008CE1E1 /* VODApp-Bridging-Header.h */,
+			);
+			path = SimRemoteNotifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +209,12 @@
 				TargetAttributes = {
 					0758524022E5A2F2008CE1E1 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					0758525722E5A2F3008CE1E1 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -241,8 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0758524722E5A2F2008CE1E1 /* ViewController.swift in Sources */,
+				0758527622E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m in Sources */,
 				0758524522E5A2F2008CE1E1 /* AppDelegate.swift in Sources */,
 				0758524D22E5A2F2008CE1E1 /* VODApp.xcdatamodeld in Sources */,
+				0758527922E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = VODApp/Info.plist;
@@ -414,6 +443,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lib/SimRemoteNotifications/VODApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -423,6 +454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = VODApp/Info.plist;
@@ -433,6 +465,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lib/SimRemoteNotifications/VODApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
