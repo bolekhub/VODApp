@@ -61,6 +61,11 @@
 		0758523822E5A2F2008CE1E1 = {
 			isa = PBXGroup;
 			children = (
+				0758526B22E5A867008CE1E1 /* Resources */,
+				0758526A22E5A862008CE1E1 /* Lib */,
+				0758526922E5A85A008CE1E1 /* Model */,
+				0758526822E5A844008CE1E1 /* Network */,
+				0758526722E5A83B008CE1E1 /* Source */,
 				0758524322E5A2F2008CE1E1 /* VODApp */,
 				0758525B22E5A2F3008CE1E1 /* VODAppTests */,
 				0758524222E5A2F2008CE1E1 /* Products */,
@@ -97,6 +102,41 @@
 				0758525E22E5A2F3008CE1E1 /* Info.plist */,
 			);
 			path = VODAppTests;
+			sourceTree = "<group>";
+		};
+		0758526722E5A83B008CE1E1 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		0758526822E5A844008CE1E1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0758526922E5A85A008CE1E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0758526A22E5A862008CE1E1 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		0758526B22E5A867008CE1E1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,8 +404,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VVU2BQZ6F9;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = VODApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -373,6 +413,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -382,8 +423,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VVU2BQZ6F9;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = VODApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -391,6 +432,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
