@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0758524522E5A2F2008CE1E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758524422E5A2F2008CE1E1 /* AppDelegate.swift */; };
+		0758524722E5A2F2008CE1E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758524622E5A2F2008CE1E1 /* ViewController.swift */; };
+		0758524A22E5A2F2008CE1E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0758524822E5A2F2008CE1E1 /* Main.storyboard */; };
+		0758524D22E5A2F2008CE1E1 /* VODApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0758524B22E5A2F2008CE1E1 /* VODApp.xcdatamodeld */; };
+		0758524F22E5A2F3008CE1E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0758524E22E5A2F3008CE1E1 /* Assets.xcassets */; };
+		0758525222E5A2F3008CE1E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0758525022E5A2F3008CE1E1 /* LaunchScreen.storyboard */; };
+		0758525D22E5A2F3008CE1E1 /* VODAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758525C22E5A2F3008CE1E1 /* VODAppTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0758525922E5A2F3008CE1E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0758523922E5A2F2008CE1E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0758524022E5A2F2008CE1E1;
+			remoteInfo = VODApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0758524122E5A2F2008CE1E1 /* VODApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VODApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0758524422E5A2F2008CE1E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0758524622E5A2F2008CE1E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0758524922E5A2F2008CE1E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0758524C22E5A2F2008CE1E1 /* VODApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VODApp.xcdatamodel; sourceTree = "<group>"; };
+		0758524E22E5A2F3008CE1E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0758525122E5A2F3008CE1E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0758525322E5A2F3008CE1E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0758525822E5A2F3008CE1E1 /* VODAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VODAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0758525C22E5A2F3008CE1E1 /* VODAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VODAppTests.swift; sourceTree = "<group>"; };
+		0758525E22E5A2F3008CE1E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0758523E22E5A2F2008CE1E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0758525522E5A2F3008CE1E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0758523822E5A2F2008CE1E1 = {
+			isa = PBXGroup;
+			children = (
+				0758524322E5A2F2008CE1E1 /* VODApp */,
+				0758525B22E5A2F3008CE1E1 /* VODAppTests */,
+				0758524222E5A2F2008CE1E1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0758524222E5A2F2008CE1E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0758524122E5A2F2008CE1E1 /* VODApp.app */,
+				0758525822E5A2F3008CE1E1 /* VODAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0758524322E5A2F2008CE1E1 /* VODApp */ = {
+			isa = PBXGroup;
+			children = (
+				0758524422E5A2F2008CE1E1 /* AppDelegate.swift */,
+				0758524622E5A2F2008CE1E1 /* ViewController.swift */,
+				0758524822E5A2F2008CE1E1 /* Main.storyboard */,
+				0758524E22E5A2F3008CE1E1 /* Assets.xcassets */,
+				0758525022E5A2F3008CE1E1 /* LaunchScreen.storyboard */,
+				0758525322E5A2F3008CE1E1 /* Info.plist */,
+				0758524B22E5A2F2008CE1E1 /* VODApp.xcdatamodeld */,
+			);
+			path = VODApp;
+			sourceTree = "<group>";
+		};
+		0758525B22E5A2F3008CE1E1 /* VODAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				0758525C22E5A2F3008CE1E1 /* VODAppTests.swift */,
+				0758525E22E5A2F3008CE1E1 /* Info.plist */,
+			);
+			path = VODAppTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0758524022E5A2F2008CE1E1 /* VODApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0758526122E5A2F3008CE1E1 /* Build configuration list for PBXNativeTarget "VODApp" */;
+			buildPhases = (
+				0758523D22E5A2F2008CE1E1 /* Sources */,
+				0758523E22E5A2F2008CE1E1 /* Frameworks */,
+				0758523F22E5A2F2008CE1E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VODApp;
+			productName = VODApp;
+			productReference = 0758524122E5A2F2008CE1E1 /* VODApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0758525722E5A2F3008CE1E1 /* VODAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0758526422E5A2F3008CE1E1 /* Build configuration list for PBXNativeTarget "VODAppTests" */;
+			buildPhases = (
+				0758525422E5A2F3008CE1E1 /* Sources */,
+				0758525522E5A2F3008CE1E1 /* Frameworks */,
+				0758525622E5A2F3008CE1E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0758525A22E5A2F3008CE1E1 /* PBXTargetDependency */,
+			);
+			name = VODAppTests;
+			productName = VODAppTests;
+			productReference = 0758525822E5A2F3008CE1E1 /* VODAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0758523922E5A2F2008CE1E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Home;
+				TargetAttributes = {
+					0758524022E5A2F2008CE1E1 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					0758525722E5A2F3008CE1E1 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 0758524022E5A2F2008CE1E1;
+					};
+				};
+			};
+			buildConfigurationList = 0758523C22E5A2F2008CE1E1 /* Build configuration list for PBXProject "VODApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0758523822E5A2F2008CE1E1;
+			productRefGroup = 0758524222E5A2F2008CE1E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0758524022E5A2F2008CE1E1 /* VODApp */,
+				0758525722E5A2F3008CE1E1 /* VODAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0758523F22E5A2F2008CE1E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0758525222E5A2F3008CE1E1 /* LaunchScreen.storyboard in Resources */,
+				0758524F22E5A2F3008CE1E1 /* Assets.xcassets in Resources */,
+				0758524A22E5A2F2008CE1E1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0758525622E5A2F3008CE1E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0758523D22E5A2F2008CE1E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0758524722E5A2F2008CE1E1 /* ViewController.swift in Sources */,
+				0758524522E5A2F2008CE1E1 /* AppDelegate.swift in Sources */,
+				0758524D22E5A2F2008CE1E1 /* VODApp.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0758525422E5A2F3008CE1E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0758525D22E5A2F3008CE1E1 /* VODAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0758525A22E5A2F3008CE1E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0758524022E5A2F2008CE1E1 /* VODApp */;
+			targetProxy = 0758525922E5A2F3008CE1E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0758524822E5A2F2008CE1E1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0758524922E5A2F2008CE1E1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0758525022E5A2F3008CE1E1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0758525122E5A2F3008CE1E1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0758525F22E5A2F3008CE1E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0758526022E5A2F3008CE1E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0758526222E5A2F3008CE1E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VVU2BQZ6F9;
+				INFOPLIST_FILE = VODApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0758526322E5A2F3008CE1E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VVU2BQZ6F9;
+				INFOPLIST_FILE = VODApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0758526522E5A2F3008CE1E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VVU2BQZ6F9;
+				INFOPLIST_FILE = VODAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VODApp.app/VODApp";
+			};
+			name = Debug;
+		};
+		0758526622E5A2F3008CE1E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VVU2BQZ6F9;
+				INFOPLIST_FILE = VODAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VODApp.app/VODApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0758523C22E5A2F2008CE1E1 /* Build configuration list for PBXProject "VODApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0758525F22E5A2F3008CE1E1 /* Debug */,
+				0758526022E5A2F3008CE1E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0758526122E5A2F3008CE1E1 /* Build configuration list for PBXNativeTarget "VODApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0758526222E5A2F3008CE1E1 /* Debug */,
+				0758526322E5A2F3008CE1E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0758526422E5A2F3008CE1E1 /* Build configuration list for PBXNativeTarget "VODAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0758526522E5A2F3008CE1E1 /* Debug */,
+				0758526622E5A2F3008CE1E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0758524B22E5A2F2008CE1E1 /* VODApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0758524C22E5A2F2008CE1E1 /* VODApp.xcdatamodel */,
+			);
+			currentVersion = 0758524C22E5A2F2008CE1E1 /* VODApp.xcdatamodel */;
+			path = VODApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 0758523922E5A2F2008CE1E1 /* Project object */;
+}
