@@ -16,6 +16,9 @@
 		0758525D22E5A2F3008CE1E1 /* VODAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758525C22E5A2F3008CE1E1 /* VODAppTests.swift */; };
 		0758527622E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758527522E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m */; };
 		0758527922E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758527722E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.m */; };
+		0758527B22E5B6E7008CE1E1 /* PlayListItemVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758527A22E5B6E7008CE1E1 /* PlayListItemVO.swift */; };
+		0758527F22E5BD67008CE1E1 /* playlist.json in Resources */ = {isa = PBXBuildFile; fileRef = 0758527D22E5BBDB008CE1E1 /* playlist.json */; };
+		0758528022E5BD9C008CE1E1 /* playlist.json in Resources */ = {isa = PBXBuildFile; fileRef = 0758527D22E5BBDB008CE1E1 /* playlist.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		0758527522E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSimulatorRemoteNotificationsService.m; sourceTree = "<group>"; };
 		0758527722E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+SimulatorRemoteNotifications.m"; sourceTree = "<group>"; };
 		0758527822E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+SimulatorRemoteNotifications.h"; sourceTree = "<group>"; };
+		0758527A22E5B6E7008CE1E1 /* PlayListItemVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListItemVO.swift; sourceTree = "<group>"; };
+		0758527D22E5BBDB008CE1E1 /* playlist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = playlist.json; sourceTree = "<group>"; };
+		0758527E22E5BC08008CE1E1 /* payload.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = payload.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +74,6 @@
 		0758523822E5A2F2008CE1E1 = {
 			isa = PBXGroup;
 			children = (
-				0758526B22E5A867008CE1E1 /* Resources */,
-				0758526A22E5A862008CE1E1 /* Lib */,
-				0758526922E5A85A008CE1E1 /* Model */,
-				0758526822E5A844008CE1E1 /* Network */,
-				0758526722E5A83B008CE1E1 /* Source */,
 				0758524322E5A2F2008CE1E1 /* VODApp */,
 				0758525B22E5A2F3008CE1E1 /* VODAppTests */,
 				0758524222E5A2F2008CE1E1 /* Products */,
@@ -91,6 +92,11 @@
 		0758524322E5A2F2008CE1E1 /* VODApp */ = {
 			isa = PBXGroup;
 			children = (
+				0758527C22E5BBBE008CE1E1 /* Resource */,
+				0758526722E5A83B008CE1E1 /* Source */,
+				0758526A22E5A862008CE1E1 /* Lib */,
+				0758526922E5A85A008CE1E1 /* Model */,
+				0758526822E5A844008CE1E1 /* Network */,
 				0758524422E5A2F2008CE1E1 /* AppDelegate.swift */,
 				0758524622E5A2F2008CE1E1 /* ViewController.swift */,
 				0758524822E5A2F2008CE1E1 /* Main.storyboard */,
@@ -114,6 +120,7 @@
 		0758526722E5A83B008CE1E1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				0758526B22E5A867008CE1E1 /* Resources */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -128,6 +135,7 @@
 		0758526922E5A85A008CE1E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0758527A22E5B6E7008CE1E1 /* PlayListItemVO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,6 +165,15 @@
 				0758527322E5AA05008CE1E1 /* VODApp-Bridging-Header.h */,
 			);
 			path = SimRemoteNotifications;
+			sourceTree = "<group>";
+		};
+		0758527C22E5BBBE008CE1E1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0758527D22E5BBDB008CE1E1 /* playlist.json */,
+				0758527E22E5BC08008CE1E1 /* payload.json */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +266,7 @@
 				0758525222E5A2F3008CE1E1 /* LaunchScreen.storyboard in Resources */,
 				0758524F22E5A2F3008CE1E1 /* Assets.xcassets in Resources */,
 				0758524A22E5A2F2008CE1E1 /* Main.storyboard in Resources */,
+				0758528022E5BD9C008CE1E1 /* playlist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0758527F22E5BD67008CE1E1 /* playlist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +289,7 @@
 				0758527622E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m in Sources */,
 				0758524522E5A2F2008CE1E1 /* AppDelegate.swift in Sources */,
 				0758524D22E5A2F2008CE1E1 /* VODApp.xcdatamodeld in Sources */,
+				0758527B22E5B6E7008CE1E1 /* PlayListItemVO.swift in Sources */,
 				0758527922E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,7 +463,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Lib/SimRemoteNotifications/VODApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/VODApp/Lib/SimRemoteNotifications/VODApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -465,7 +485,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Lib/SimRemoteNotifications/VODApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/VODApp/Lib/SimRemoteNotifications/VODApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
