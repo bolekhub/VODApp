@@ -19,6 +19,11 @@
 		0758527B22E5B6E7008CE1E1 /* PlayListItemVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758527A22E5B6E7008CE1E1 /* PlayListItemVO.swift */; };
 		0758527F22E5BD67008CE1E1 /* playlist.json in Resources */ = {isa = PBXBuildFile; fileRef = 0758527D22E5BBDB008CE1E1 /* playlist.json */; };
 		0758528022E5BD9C008CE1E1 /* playlist.json in Resources */ = {isa = PBXBuildFile; fileRef = 0758527D22E5BBDB008CE1E1 /* playlist.json */; };
+		0758528422E5CB42008CE1E1 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758528322E5CB42008CE1E1 /* DownloadService.swift */; };
+		0758528622E5CB9B008CE1E1 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758528522E5CB9B008CE1E1 /* Download.swift */; };
+		0758528822E5CC07008CE1E1 /* DServiceSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758528722E5CC07008CE1E1 /* DServiceSessionDelegate.swift */; };
+		07EA71C422E76B2500B14A60 /* OneSignal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EA71C322E76B2400B14A60 /* OneSignal.framework */; };
+		07EA71C522E76B2500B14A60 /* OneSignal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07EA71C322E76B2400B14A60 /* OneSignal.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +35,20 @@
 			remoteInfo = VODApp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		07EA71C622E76B2500B14A60 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				07EA71C522E76B2500B14A60 /* OneSignal.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0758524122E5A2F2008CE1E1 /* VODApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VODApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +70,11 @@
 		0758527A22E5B6E7008CE1E1 /* PlayListItemVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListItemVO.swift; sourceTree = "<group>"; };
 		0758527D22E5BBDB008CE1E1 /* playlist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = playlist.json; sourceTree = "<group>"; };
 		0758527E22E5BC08008CE1E1 /* payload.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = payload.json; sourceTree = "<group>"; };
+		0758528322E5CB42008CE1E1 /* DownloadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
+		0758528522E5CB9B008CE1E1 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		0758528722E5CC07008CE1E1 /* DServiceSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DServiceSessionDelegate.swift; sourceTree = "<group>"; };
+		07EA71C322E76B2400B14A60 /* OneSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneSignal.framework; path = Carthage/Build/iOS/OneSignal.framework; sourceTree = "<group>"; };
+		07EA71C822E76B9100B14A60 /* VODApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VODApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EA71C422E76B2500B14A60 /* OneSignal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +99,7 @@
 		0758523822E5A2F2008CE1E1 = {
 			isa = PBXGroup;
 			children = (
+				07EA71C322E76B2400B14A60 /* OneSignal.framework */,
 				0758524322E5A2F2008CE1E1 /* VODApp */,
 				0758525B22E5A2F3008CE1E1 /* VODAppTests */,
 				0758524222E5A2F2008CE1E1 /* Products */,
@@ -92,6 +118,7 @@
 		0758524322E5A2F2008CE1E1 /* VODApp */ = {
 			isa = PBXGroup;
 			children = (
+				07EA71C822E76B9100B14A60 /* VODApp.entitlements */,
 				0758527C22E5BBBE008CE1E1 /* Resource */,
 				0758526722E5A83B008CE1E1 /* Source */,
 				0758526A22E5A862008CE1E1 /* Lib */,
@@ -128,6 +155,8 @@
 		0758526822E5A844008CE1E1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				0758528322E5CB42008CE1E1 /* DownloadService.swift */,
+				0758528722E5CC07008CE1E1 /* DServiceSessionDelegate.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -136,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				0758527A22E5B6E7008CE1E1 /* PlayListItemVO.swift */,
+				0758528522E5CB9B008CE1E1 /* Download.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +216,8 @@
 				0758523D22E5A2F2008CE1E1 /* Sources */,
 				0758523E22E5A2F2008CE1E1 /* Frameworks */,
 				0758523F22E5A2F2008CE1E1 /* Resources */,
+				07EA71C622E76B2500B14A60 /* Embed Frameworks */,
+				07EA71C722E76B2B00B14A60 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -229,6 +261,9 @@
 						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -280,17 +315,42 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07EA71C722E76B2B00B14A60 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/OneSignal.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0758523D22E5A2F2008CE1E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0758524722E5A2F2008CE1E1 /* ViewController.swift in Sources */,
+				0758528422E5CB42008CE1E1 /* DownloadService.swift in Sources */,
 				0758527622E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m in Sources */,
 				0758524522E5A2F2008CE1E1 /* AppDelegate.swift in Sources */,
+				0758528622E5CB9B008CE1E1 /* Download.swift in Sources */,
 				0758524D22E5A2F2008CE1E1 /* VODApp.xcdatamodeld in Sources */,
 				0758527B22E5B6E7008CE1E1 /* PlayListItemVO.swift in Sources */,
 				0758527922E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.m in Sources */,
+				0758528822E5CC07008CE1E1 /* DServiceSessionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,8 +513,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = VODApp/VODApp.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VVU2BQZ6F9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = VODApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,7 +527,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "TelefonicaChallenge-Dev-Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/VODApp/Lib/SimRemoteNotifications/VODApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -475,8 +540,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = VODApp/VODApp.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = VODApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
