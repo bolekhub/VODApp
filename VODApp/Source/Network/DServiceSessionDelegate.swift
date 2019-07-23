@@ -33,8 +33,6 @@ class DSSessionDelegate: NSObject, URLSessionDelegate, URLSessionTaskDelegate, U
     /// where downloaded files must be saved
     let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     
-    /// limit download of files to this size. 20Mb
-    let maxDownloadSize = 20971520
     
     func localFilePath(for url: URL) -> URL {
         return documentsPath.appendingPathComponent(url.lastPathComponent)

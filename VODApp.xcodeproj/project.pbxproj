@@ -24,6 +24,13 @@
 		0758528822E5CC07008CE1E1 /* DServiceSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758528722E5CC07008CE1E1 /* DServiceSessionDelegate.swift */; };
 		07EA71C422E76B2500B14A60 /* OneSignal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EA71C322E76B2400B14A60 /* OneSignal.framework */; };
 		07EA71C522E76B2500B14A60 /* OneSignal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07EA71C322E76B2400B14A60 /* OneSignal.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		07EA71CE22E79B2200B14A60 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71CD22E79B2200B14A60 /* String+Helper.swift */; };
+		07EA71D022E79B3D00B14A60 /* Notification+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71CF22E79B3D00B14A60 /* Notification+Constants.swift */; };
+		07EA71D222E79B6E00B14A60 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D122E79B6E00B14A60 /* UIColor+Helpers.swift */; };
+		07EA71D422E79C0F00B14A60 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D322E79C0F00B14A60 /* Fonts.swift */; };
+		07EA71D622E79C6400B14A60 /* UIFont+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D522E79C6400B14A60 /* UIFont+Types.swift */; };
+		07EA71D822E79CC800B14A60 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D722E79CC800B14A60 /* Color.swift */; };
+		07EA71DA22E79D5A00B14A60 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D922E79D5A00B14A60 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +82,13 @@
 		0758528722E5CC07008CE1E1 /* DServiceSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DServiceSessionDelegate.swift; sourceTree = "<group>"; };
 		07EA71C322E76B2400B14A60 /* OneSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneSignal.framework; path = Carthage/Build/iOS/OneSignal.framework; sourceTree = "<group>"; };
 		07EA71C822E76B9100B14A60 /* VODApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VODApp.entitlements; sourceTree = "<group>"; };
+		07EA71CD22E79B2200B14A60 /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
+		07EA71CF22E79B3D00B14A60 /* Notification+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Constants.swift"; sourceTree = "<group>"; };
+		07EA71D122E79B6E00B14A60 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
+		07EA71D322E79C0F00B14A60 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		07EA71D522E79C6400B14A60 /* UIFont+Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Types.swift"; sourceTree = "<group>"; };
+		07EA71D722E79CC800B14A60 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		07EA71D922E79D5A00B14A60 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,9 +135,6 @@
 				07EA71C822E76B9100B14A60 /* VODApp.entitlements */,
 				0758527C22E5BBBE008CE1E1 /* Resource */,
 				0758526722E5A83B008CE1E1 /* Source */,
-				0758526A22E5A862008CE1E1 /* Lib */,
-				0758526922E5A85A008CE1E1 /* Model */,
-				0758526822E5A844008CE1E1 /* Network */,
 				0758524422E5A2F2008CE1E1 /* AppDelegate.swift */,
 				0758524622E5A2F2008CE1E1 /* ViewController.swift */,
 				0758524822E5A2F2008CE1E1 /* Main.storyboard */,
@@ -147,7 +158,12 @@
 		0758526722E5A83B008CE1E1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				0758526B22E5A867008CE1E1 /* Resources */,
+				07EA71CB22E796C300B14A60 /* Common */,
+				07EA71CA22E796B500B14A60 /* Constants */,
+				07EA71C922E796A900B14A60 /* Extensions */,
+				0758526822E5A844008CE1E1 /* Network */,
+				0758526A22E5A862008CE1E1 /* Lib */,
+				0758526922E5A85A008CE1E1 /* Model */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -178,13 +194,6 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
-		0758526B22E5A867008CE1E1 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		0758527222E5A9F2008CE1E1 /* SimRemoteNotifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,10 +209,46 @@
 		0758527C22E5BBBE008CE1E1 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				07EA71CC22E796E700B14A60 /* Fonts */,
 				0758527D22E5BBDB008CE1E1 /* playlist.json */,
 				0758527E22E5BC08008CE1E1 /* payload.json */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		07EA71C922E796A900B14A60 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				07EA71CD22E79B2200B14A60 /* String+Helper.swift */,
+				07EA71CF22E79B3D00B14A60 /* Notification+Constants.swift */,
+				07EA71D122E79B6E00B14A60 /* UIColor+Helpers.swift */,
+				07EA71D522E79C6400B14A60 /* UIFont+Types.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		07EA71CA22E796B500B14A60 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				07EA71D922E79D5A00B14A60 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		07EA71CB22E796C300B14A60 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				07EA71D322E79C0F00B14A60 /* Fonts.swift */,
+				07EA71D722E79CC800B14A60 /* Color.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		07EA71CC22E796E700B14A60 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,11 +387,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EA71D022E79B3D00B14A60 /* Notification+Constants.swift in Sources */,
 				0758524722E5A2F2008CE1E1 /* ViewController.swift in Sources */,
+				07EA71D422E79C0F00B14A60 /* Fonts.swift in Sources */,
 				0758528422E5CB42008CE1E1 /* DownloadService.swift in Sources */,
 				0758527622E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m in Sources */,
 				0758524522E5A2F2008CE1E1 /* AppDelegate.swift in Sources */,
+				07EA71D622E79C6400B14A60 /* UIFont+Types.swift in Sources */,
+				07EA71DA22E79D5A00B14A60 /* Constants.swift in Sources */,
+				07EA71CE22E79B2200B14A60 /* String+Helper.swift in Sources */,
+				07EA71D822E79CC800B14A60 /* Color.swift in Sources */,
 				0758528622E5CB9B008CE1E1 /* Download.swift in Sources */,
+				07EA71D222E79B6E00B14A60 /* UIColor+Helpers.swift in Sources */,
 				0758524D22E5A2F2008CE1E1 /* VODApp.xcdatamodeld in Sources */,
 				0758527B22E5B6E7008CE1E1 /* PlayListItemVO.swift in Sources */,
 				0758527922E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.m in Sources */,
@@ -528,7 +580,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "TelefonicaChallenge-Dev-Profile";
-				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/VODApp/Lib/SimRemoteNotifications/VODApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/VODApp/Source/Lib/SimRemoteNotifications/VODApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -555,7 +607,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VODApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/VODApp/Lib/SimRemoteNotifications/VODApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/VODApp/Source/Lib/SimRemoteNotifications/VODApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
