@@ -10,7 +10,7 @@ import Foundation
 
 /// used to parse the incoming playlist, its excpected that instances are equal due to the value of
 // their properties in this case the id wich corresponde with a hash coming on the notification payload.
-struct PlayListItemVO: Codable, Equatable, Hashable {
+struct PlayListItemVO: Codable, Equatable, Hashable, Comparable {
 
     /// title of the song
     var title: String
@@ -34,6 +34,10 @@ struct PlayListItemVO: Codable, Equatable, Hashable {
     //Equatable. Needed to compare two objects. are equally if both have same identifier(id) value
     static func == (lhs: PlayListItemVO, rhs: PlayListItemVO) -> Bool {
         return lhs.id == rhs.id
+    }
+    
+    static func < (lhs: PlayListItemVO, rhs: PlayListItemVO) -> Bool {
+        return lhs.title < rhs.title
     }
     
     //Hashable. Used to identify object singularity in collections.

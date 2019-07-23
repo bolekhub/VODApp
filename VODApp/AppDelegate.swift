@@ -8,18 +8,39 @@
 
 import UIKit
 import CoreData
+import UserNotifications
+import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    private lazy var downloadReadyNotification: UNNotificationRequest = {
+        let content = UNMutableNotificationContent()
+        content.title = "New content available"
+        content.body = "There are new videos for offline play.! enjoy"
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
+                                                        repeats: false)
+        let request = UNNotificationRequest(identifier: "123", content: content, trigger: trigger)
+        return request
+    }()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        #if DEBUG
-         application.listenForRemoteNotifications()
+        
+        #if targetEnvironment(simulator)
+            application.listenForRemoteNotifications()
+        #else
+            let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: true]
+            OneSignal.initWithLaunchOptions(launchOptions,
+                                            appId: "82671b57-5bf9-4a20-a61a-8446efe1d118",
+                                            handleNotificationAction: nil,
+                                            settings: onesignalInitSettings)
+        
+            OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
         #endif
+        
         return true
     }
 
@@ -47,6 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
+    
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -91,28 +117,91 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func registerForLocalNotifications() {
+        let options: UNAuthorizationOptions = [.alert, .sound];
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: options) {
+            (granted, error) in
+            if !granted {
+                print("Something went wrong")
+            }
+        }
+    }
+    
+    func fireDownloadReadyNotification() {
+        let center = UNUserNotificationCenter.current()
+        center.add(self.downloadReadyNotification) { (error) in
+            if (error != nil) {
+                debugPrint("something went wrong with Local notif.")
+            }
+        }
+    }
 
 }
 
 
 //MARK: Remote notifications
-extension AppDelegate{
+extension AppDelegate {
+    
+    
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
+        //comming from simulator
         if let playList = userInfo["playlist"] as? NSDictionary {
-            
             var plItems = Set<PlayListItemVO>()
-            
             for (k, v) in playList  {
                 if let item = PlayListItemVO.fromDictionary(v as! NSDictionary, identifier: k as! String) {
                     plItems.update(with: item)
                 }
             }
-            
+            var arr = plItems.compactMap({$0})
+            arr.sort { (a, b) -> Bool in
+                return a < b
+            }
+            DownloadService.default.downloadItems(items: arr, completionHandler: completionHandler)
             debugPrint("parsed \(plItems.count)")
         }
+        
+        //comming from oneSignal
+        if let custom = userInfo["custom"] as? NSDictionary {
+            
+            guard let plEnvelop = custom.object(forKey: "a") as? NSDictionary else { return }
+            guard let playListString = plEnvelop.allValues.first as? String  else { return }
+            
+            let playlistStringDictionaryAsData = playListString.data(using: .utf8)
+            let playListAsDictionary = try! JSONSerialization.jsonObject(with: playlistStringDictionaryAsData!,
+                                                             options: .allowFragments)
+            var plItems = Set<PlayListItemVO>()
+            
+            for (k, v) in (playListAsDictionary as! NSDictionary) {
+                if let item = PlayListItemVO.fromDictionary(v as! NSDictionary, identifier: k as! String) {
+                    plItems.update(with: item)
+                }
+            }
+            
+            var arr = plItems.compactMap({$0})
+            arr.sort { (a, b) -> Bool in
+                return a < b
+            }
+
+            DownloadService.default.downloadItems(items: arr, completionHandler: completionHandler)
+        }
+        
+    }
+}
+
+
+
+
+extension AppDelegate {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print("Device Token : -> \(deviceTokenString)")
     }
     
-    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        debugPrint("Failed registering for push \(error.localizedDescription)")
+    }
 }
