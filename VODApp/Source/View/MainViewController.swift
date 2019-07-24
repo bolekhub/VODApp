@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import ISHPullUp
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, ISHPullUpContentDelegate {
+    
 
     let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     @IBOutlet weak var playerView: VersaPlayerView!
@@ -29,7 +31,7 @@ class MainViewController: UIViewController {
         
         let videoUrl = documentsPath.appendingPathComponent("sample3.mp4")
         let item = VersaPlayerItem(url: videoUrl)
-        //playerView.set(item: item)
+        playerView.set(item: item)
         
         self.addChild(playlistVC)
         self.view.addSubview(playlistVC.view)
@@ -44,5 +46,24 @@ class MainViewController: UIViewController {
     }
 
 
+    static func storyboardidentifier() -> String {
+        return String(describing: MainViewController.self)
+    }
+    
+    
+    //MARK: - ISHPullUpContentDelegate
+    func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, update edgeInsets: UIEdgeInsets, forContentViewController contentVC: UIViewController) {
+        if #available(iOS 11.0, *) {
+            additionalSafeAreaInsets = edgeInsets
+            playerView.layoutMargins = .zero
+        } else {
+            // update edgeInsets
+            playerView.layoutMargins = edgeInsets
+        }
+        
+        // call layoutIfNeeded right away to participate in animations
+        // this method may be called from within animation blocks
+        playerView.layoutIfNeeded()
+    }
 }
 

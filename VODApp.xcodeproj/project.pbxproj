@@ -55,6 +55,9 @@
 		07EA721B22E7D58D00B14A60 /* VersaPlayerCaptionStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA720922E7D58D00B14A60 /* VersaPlayerCaptionStyling.swift */; };
 		07EA721C22E7D58D00B14A60 /* VersaPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA720A22E7D58D00B14A60 /* VersaPlayerItem.swift */; };
 		07EA721E22E851BE00B14A60 /* VideoDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA721D22E851BE00B14A60 /* VideoDataStore.swift */; };
+		07EA722222E8605E00B14A60 /* ISHPullUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EA722122E8605E00B14A60 /* ISHPullUp.framework */; };
+		07EA722322E8605E00B14A60 /* ISHPullUp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07EA722122E8605E00B14A60 /* ISHPullUp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		07EA722522E861A700B14A60 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA722422E861A700B14A60 /* ContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				07EA71C522E76B2500B14A60 /* OneSignal.framework in Embed Frameworks */,
+				07EA722322E8605E00B14A60 /* ISHPullUp.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +141,8 @@
 		07EA720922E7D58D00B14A60 /* VersaPlayerCaptionStyling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerCaptionStyling.swift; sourceTree = "<group>"; };
 		07EA720A22E7D58D00B14A60 /* VersaPlayerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerItem.swift; sourceTree = "<group>"; };
 		07EA721D22E851BE00B14A60 /* VideoDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDataStore.swift; sourceTree = "<group>"; };
+		07EA722122E8605E00B14A60 /* ISHPullUp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ISHPullUp.framework; path = Carthage/Build/iOS/ISHPullUp.framework; sourceTree = "<group>"; };
+		07EA722422E861A700B14A60 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07EA71C422E76B2500B14A60 /* OneSignal.framework in Frameworks */,
+				07EA722222E8605E00B14A60 /* ISHPullUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +168,7 @@
 		0758523822E5A2F2008CE1E1 = {
 			isa = PBXGroup;
 			children = (
+				07EA722122E8605E00B14A60 /* ISHPullUp.framework */,
 				07EA71C322E76B2400B14A60 /* OneSignal.framework */,
 				0758524322E5A2F2008CE1E1 /* VODApp */,
 				0758525B22E5A2F3008CE1E1 /* VODAppTests */,
@@ -184,7 +192,6 @@
 				0758527C22E5BBBE008CE1E1 /* Resource */,
 				0758526722E5A83B008CE1E1 /* Source */,
 				0758524422E5A2F2008CE1E1 /* AppDelegate.swift */,
-				0758524622E5A2F2008CE1E1 /* MainViewController.swift */,
 				0758524822E5A2F2008CE1E1 /* Main.storyboard */,
 				0758524E22E5A2F3008CE1E1 /* Assets.xcassets */,
 				0758525022E5A2F3008CE1E1 /* LaunchScreen.storyboard */,
@@ -317,7 +324,9 @@
 		07EA71E422E7BC4900B14A60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0758524622E5A2F2008CE1E1 /* MainViewController.swift */,
 				07EA71E522E7BCE800B14A60 /* PlayListViewController.swift */,
+				07EA722422E861A700B14A60 /* ContainerViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -532,6 +541,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/OneSignal.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ISHPullUp.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -566,6 +576,7 @@
 				07EA71DA22E79D5A00B14A60 /* Constants.swift in Sources */,
 				07EA71CE22E79B2200B14A60 /* String+Helper.swift in Sources */,
 				07EA71D822E79CC800B14A60 /* Color.swift in Sources */,
+				07EA722522E861A700B14A60 /* ContainerViewController.swift in Sources */,
 				07EA71E322E7A72400B14A60 /* CoreDataDAO.swift in Sources */,
 				07EA71E122E7A60300B14A60 /* PlayListRepository.swift in Sources */,
 				07EA721822E7D58D00B14A60 /* VersaPlayerExtension.swift in Sources */,
