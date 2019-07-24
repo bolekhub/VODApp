@@ -10,33 +10,98 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VODApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="VODApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="eSS-Zt-jBa">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxr-fK-keq" customClass="VersaPlayerView" customModule="VODApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="eSS-Zt-jBa" secondAttribute="bottom" id="Ccp-gQ-8aw"/>
-                            <constraint firstItem="eSS-Zt-jBa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PmQ-cE-Xbg"/>
-                            <constraint firstItem="eSS-Zt-jBa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="b2A-HU-vID"/>
-                            <constraint firstAttribute="trailing" secondItem="eSS-Zt-jBa" secondAttribute="trailing" id="fRu-oI-SHm"/>
+                            <constraint firstAttribute="trailing" secondItem="sxr-fK-keq" secondAttribute="trailing" id="0x5-B5-3yh"/>
+                            <constraint firstItem="sxr-fK-keq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="B6I-tV-PdH"/>
+                            <constraint firstAttribute="bottom" secondItem="sxr-fK-keq" secondAttribute="bottom" id="NOr-jX-6ac"/>
+                            <constraint firstItem="sxr-fK-keq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Tm0-aN-33V"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="playerControls" destination="Gg2-RE-X9Y" id="dkJ-xK-RaV"/>
+                        <outlet property="playerView" destination="sxr-fK-keq" id="u1W-9B-msD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Gg2-RE-X9Y" customClass="VersaPlayerControls" customModule="VODApp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="RF3-Ed-2Py" customClass="VersaSeekbarSlider" customModule="VODApp" customModuleProvider="target">
+                            <rect key="frame" x="69" y="74" width="132" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="53L-Hv-rIR"/>
+                            </constraints>
+                        </slider>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmy-Wx-Bhp" customClass="VersaTimeLabel" customModule="VODApp" customModuleProvider="target">
+                            <rect key="frame" x="4" y="80" width="50" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="Glw-Ix-gFD"/>
+                                <constraint firstAttribute="height" constant="14" id="fnP-c6-Mhm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aqui estoy yo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwO-fh-Msd">
+                            <rect key="frame" x="10" y="33" width="220" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="Eov-wA-RE3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="uwO-fh-Msd" firstAttribute="leading" secondItem="Gg2-RE-X9Y" secondAttribute="leading" constant="10" id="B5U-zW-KaO"/>
+                        <constraint firstItem="RF3-Ed-2Py" firstAttribute="bottom" secondItem="zKA-22-Ab3" secondAttribute="bottom" id="IRJ-Rq-YkY"/>
+                        <constraint firstItem="RF3-Ed-2Py" firstAttribute="leading" secondItem="Pmy-Wx-Bhp" secondAttribute="trailing" constant="17" id="RPV-Tb-11b"/>
+                        <constraint firstItem="RF3-Ed-2Py" firstAttribute="top" secondItem="uwO-fh-Msd" secondAttribute="bottom" constant="20" id="Si9-5G-dZU"/>
+                        <constraint firstAttribute="trailing" secondItem="uwO-fh-Msd" secondAttribute="trailing" constant="10" id="ayA-YF-4Fv"/>
+                        <constraint firstItem="zKA-22-Ab3" firstAttribute="trailing" secondItem="RF3-Ed-2Py" secondAttribute="trailing" constant="41" id="cfX-KM-K4A"/>
+                        <constraint firstItem="Pmy-Wx-Bhp" firstAttribute="bottom" secondItem="zKA-22-Ab3" secondAttribute="bottom" id="vHE-8b-jnN"/>
+                        <constraint firstItem="Pmy-Wx-Bhp" firstAttribute="leading" secondItem="zKA-22-Ab3" secondAttribute="leading" constant="4" id="yZB-vp-9eb"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="zKA-22-Ab3"/>
+                    <connections>
+                        <outlet property="currentTimeLabel" destination="Pmy-Wx-Bhp" id="UHH-xG-p85"/>
+                        <outlet property="seekbarSlider" destination="RF3-Ed-2Py" id="n5W-65-Ai5"/>
+                        <outlet property="videoTitle" destination="uwO-fh-Msd" id="xqD-zR-Fsr"/>
+                    </connections>
+                </view>
             </objects>
+            <point key="canvasLocation" x="-104.34782608695653" y="101.78571428571428"/>
+        </scene>
+        <!--Play List View Controller-->
+        <scene sceneID="l6h-Ud-4zW">
+            <objects>
+                <viewController storyboardIdentifier="PlayListViewController" id="VRB-Aq-wYl" customClass="PlayListViewController" customModule="VODApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LU5-Wc-bmJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dLd-ES-9xo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wm9-sK-LuQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858" y="102"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Rectangle" width="375" height="812"/>
-    </resources>
 </document>

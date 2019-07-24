@@ -25,6 +25,7 @@ extension AppDelegate {
             arr.sort { (a, b) -> Bool in
                 return a < b
             }
+                        
             DownloadService.default.downloadItems(items: arr, completionHandler: completionHandler)
             debugPrint("parsed \(plItems.count)")
         }
