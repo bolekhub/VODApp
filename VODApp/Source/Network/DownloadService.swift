@@ -14,6 +14,13 @@ class DownloadService: NSObject, DSSessionDelegateConformable {
     /// its a bag containing all downloads that this class is handling.
     private var downloads = Set<Download>()
     
+    private var playListItems: [PlayListItemVO] {
+        let r = downloads.compactMap { (dld) -> PlayListItemVO? in
+            return dld.item
+        }
+        return r
+    }
+    
     /// coordinate the network requests
     private var session : URLSession!
     
@@ -81,13 +88,14 @@ class DownloadService: NSObject, DSSessionDelegateConformable {
         download.inProgress = false
         download.complete = true
         if (self.allDownloadsCompleted == true ) {
-            remoteNotificationHandler( .newData)
             debugPrint("ALL DOWNLOADS READY")
             DispatchQueue.main.async {
                 guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                     return
                 }
                 appDelegate.fireDownloadReadyNotification()
+                appDelegate.dataStore.batchSave(items: self.playListItems)
+                self.remoteNotificationHandler( .newData)
             }
         } else {
             debugPrint("completed \(download.item.title)")
