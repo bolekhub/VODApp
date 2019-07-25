@@ -32,5 +32,7 @@ class ContainerViewController: ISHPullUpViewController {
         contentDelegate = mainContentVC
         sizingDelegate = bottomVC
         stateDelegate = bottomVC
+        
+        bottomVC.eventsDelegate = mainContentVC
     }
 }

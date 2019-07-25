@@ -58,6 +58,10 @@
 		07EA722222E8605E00B14A60 /* ISHPullUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EA722122E8605E00B14A60 /* ISHPullUp.framework */; };
 		07EA722322E8605E00B14A60 /* ISHPullUp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07EA722122E8605E00B14A60 /* ISHPullUp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		07EA722522E861A700B14A60 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA722422E861A700B14A60 /* ContainerViewController.swift */; };
+		07EA722722E89AFD00B14A60 /* PlayListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA722622E89AFD00B14A60 /* PlayListViewModel.swift */; };
+		07EA722B22E8A0D400B14A60 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA722A22E8A0D400B14A60 /* VideoCell.swift */; };
+		07EA722D22E8A95200B14A60 /* AVAsset+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA722C22E8A95200B14A60 /* AVAsset+Helpers.swift */; };
+		07EA723122E8DF9200B14A60 /* UIView+Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA723022E8DF9200B14A60 /* UIView+Borders.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +147,10 @@
 		07EA721D22E851BE00B14A60 /* VideoDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDataStore.swift; sourceTree = "<group>"; };
 		07EA722122E8605E00B14A60 /* ISHPullUp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ISHPullUp.framework; path = Carthage/Build/iOS/ISHPullUp.framework; sourceTree = "<group>"; };
 		07EA722422E861A700B14A60 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		07EA722622E89AFD00B14A60 /* PlayListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewModel.swift; sourceTree = "<group>"; };
+		07EA722A22E8A0D400B14A60 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		07EA722C22E8A95200B14A60 /* AVAsset+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAsset+Helpers.swift"; sourceTree = "<group>"; };
+		07EA723022E8DF9200B14A60 /* UIView+Borders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Borders.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +291,8 @@
 				07EA71D522E79C6400B14A60 /* UIFont+Types.swift */,
 				07EA71DB22E79E9E00B14A60 /* AppDelegate+Functions.swift */,
 				07EA71DD22E79F8200B14A60 /* AppDelegate+Push.swift */,
+				07EA722C22E8A95200B14A60 /* AVAsset+Helpers.swift */,
+				07EA723022E8DF9200B14A60 /* UIView+Borders.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,8 +334,8 @@
 		07EA71E422E7BC4900B14A60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				07EA722922E89BE800B14A60 /* PlayList */,
 				0758524622E5A2F2008CE1E1 /* MainViewController.swift */,
-				07EA71E522E7BCE800B14A60 /* PlayListViewController.swift */,
 				07EA722422E861A700B14A60 /* ContainerViewController.swift */,
 			);
 			path = View;
@@ -420,6 +430,24 @@
 				07EA720A22E7D58D00B14A60 /* VersaPlayerItem.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		07EA722922E89BE800B14A60 /* PlayList */ = {
+			isa = PBXGroup;
+			children = (
+				07EA722F22E8AE4200B14A60 /* cell */,
+				07EA722622E89AFD00B14A60 /* PlayListViewModel.swift */,
+				07EA71E522E7BCE800B14A60 /* PlayListViewController.swift */,
+			);
+			name = PlayList;
+			sourceTree = "<group>";
+		};
+		07EA722F22E8AE4200B14A60 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				07EA722A22E8A0D400B14A60 /* VideoCell.swift */,
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -559,6 +587,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EA722722E89AFD00B14A60 /* PlayListViewModel.swift in Sources */,
 				07EA721522E7D58D00B14A60 /* VersaPlayerRenderingView.swift in Sources */,
 				07EA71D022E79B3D00B14A60 /* Notification+Constants.swift in Sources */,
 				07EA720E22E7D58D00B14A60 /* VersaTimeLabel.swift in Sources */,
@@ -570,6 +599,7 @@
 				0758527622E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m in Sources */,
 				07EA721922E7D58D00B14A60 /* VersaPlayerMediaTrack.swift in Sources */,
 				07EA721122E7D58D00B14A60 /* VersaPlayerControls.swift in Sources */,
+				07EA722B22E8A0D400B14A60 /* VideoCell.swift in Sources */,
 				07EA721C22E7D58D00B14A60 /* VersaPlayerItem.swift in Sources */,
 				0758524522E5A2F2008CE1E1 /* AppDelegate.swift in Sources */,
 				07EA71D622E79C6400B14A60 /* UIFont+Types.swift in Sources */,
@@ -578,6 +608,7 @@
 				07EA71D822E79CC800B14A60 /* Color.swift in Sources */,
 				07EA722522E861A700B14A60 /* ContainerViewController.swift in Sources */,
 				07EA71E322E7A72400B14A60 /* CoreDataDAO.swift in Sources */,
+				07EA722D22E8A95200B14A60 /* AVAsset+Helpers.swift in Sources */,
 				07EA71E122E7A60300B14A60 /* PlayListRepository.swift in Sources */,
 				07EA721822E7D58D00B14A60 /* VersaPlayerExtension.swift in Sources */,
 				0758528622E5CB9B008CE1E1 /* Download.swift in Sources */,
@@ -600,6 +631,7 @@
 				07EA720B22E7D58D00B14A60 /* VersaPlayerControlsBehaviour.swift in Sources */,
 				0758528822E5CC07008CE1E1 /* DServiceSessionDelegate.swift in Sources */,
 				07EA720F22E7D58D00B14A60 /* VersaStatefulButton.swift in Sources */,
+				07EA723122E8DF9200B14A60 /* UIView+Borders.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,23 +9,45 @@
 import Foundation
 import ISHPullUp
 
-class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegate {
-    @IBOutlet weak var rootView: UIView!
+
+protocol PlayListViewControllerEvents: class {
+    func didSelectVideo(video: Video)
+}
+
+class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PlayListViewModelEvents {
     
+    func didUpdate() {
+        self.collectionView.reloadData()
+    }
+    
+    
+    private var viewModel: PlayListViewModel!
+    private var halfWayPoint = CGFloat(0)
+    private var firstAppearanceCompleted = false
+    
+    weak var eventsDelegate: PlayListViewControllerEvents?
+    weak var pullUpController: ISHPullUpViewController!
+
+    @IBOutlet weak var rootView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var buttonLock: UIButton!
     @IBOutlet weak var handleView: ISHPullUpHandleView!
     @IBOutlet weak var topLabel: UILabel!
-    // we allow the pullUp to snap to the half way point
-    private var halfWayPoint = CGFloat(0)
-    private var firstAppearanceCompleted = false
-    weak var pullUpController: ISHPullUpViewController!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        let dataStore = VideoDataStore(usingDAO: CoreDataDAO())
+        viewModel = PlayListViewModel(dataStore: dataStore)
+        viewModel.delegate = self
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         topView.addGestureRecognizer(tapGesture)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,10 +61,13 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
         if pullUpController.isLocked {
             return
         }
-        
         pullUpController.toggleState(animated: true)
     }
     
+    @objc
+    private func refreshData(){
+        self.viewModel.fetchData()
+    }
     
     class func fromStoryboard() -> PlayListViewController {
         let sb = UIStoryboard(name: Storyboard.nameIdentifier.main.rawValue, bundle: nil)
@@ -55,6 +80,29 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
     }
 }
 
+
+
+//MARK: - UICollectionViewDataSource, UICollectionViewDelegate
+extension PlayListViewController {
+    //UICollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifiers.videoList.cell.rawValue, for: indexPath) as! VideoCell
+        viewModel.configureCell(cell: cell, atIndexPath: indexPath)
+        return cell
+    }
+    
+    //UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        eventsDelegate?.didSelectVideo(video: self.viewModel.items[indexPath.row])
+        pullUpController.toggleState(animated: true)
+    }
+}
+
+//MARK: - ISHPullUpSizingDelegate, ISHPullUpStateDelegate
  extension PlayListViewController {
     
     func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, minimumHeightForBottomViewController bottomVC: UIViewController) -> CGFloat {
@@ -113,3 +161,6 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
         }
     }
 }
+
+
+

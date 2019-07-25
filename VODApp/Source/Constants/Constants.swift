@@ -10,10 +10,17 @@ import Foundation
 
 /// limit download of files to this size. 20Mb
 let maxDownloadSize = 20971520
+let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
 enum Storyboard {
     
     enum nameIdentifier: String {
         case main = "Main"
+    }
+}
+
+enum cellIdentifiers {
+    enum videoList: String {
+        case cell = "videoCellIdentifier"
     }
 }

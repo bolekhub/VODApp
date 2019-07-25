@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         content.title = "New content available"
         content.body = "There are new videos for offline play.! enjoy"
         content.sound = UNNotificationSound.default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2,
                                                         repeats: false)
         let request = UNNotificationRequest(identifier: "123", content: content, trigger: trigger)
         return request
