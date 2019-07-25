@@ -95,8 +95,8 @@ class DownloadService: NSObject, DSSessionDelegateConformable {
                 }
                 appDelegate.fireDownloadReadyNotification()
                 appDelegate.dataStore.batchSave(items: self.playListItems)
-                self.remoteNotificationHandler( .newData)
             }
+            remoteNotificationHandler( .newData)
         } else {
             debugPrint("completed \(download.item.title)")
         }
