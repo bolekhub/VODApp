@@ -53,7 +53,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="playerControls" destination="Gg2-RE-X9Y" id="dkJ-xK-RaV"/>
+                        <outlet property="playerControls" destination="Gg2-RE-X9Y" id="wI7-gL-sIQ"/>
                         <outlet property="playerView" destination="sxr-fK-keq" id="u1W-9B-msD"/>
                     </connections>
                 </viewController>
@@ -62,9 +62,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="379" height="259"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d4W-H2-1VL">
-                            <rect key="frame" x="0.0" y="173" width="379" height="86"/>
-                            <color key="backgroundColor" red="0.058823529409999999" green="0.89019607840000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="Jle-2g-Y6o">
+                            <rect key="frame" x="0.0" y="0.0" width="379" height="259"/>
                         </imageView>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="RF3-Ed-2Py" customClass="VersaSeekbarSlider" customModule="VODApp" customModuleProvider="target">
                             <rect key="frame" x="22" y="239" width="335" height="21"/>
@@ -72,14 +71,14 @@
                                 <constraint firstAttribute="height" constant="20" id="53L-Hv-rIR"/>
                             </constraints>
                         </slider>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="video title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwO-fh-Msd">
-                            <rect key="frame" x="24" y="173" width="331" height="36"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwO-fh-Msd">
+                            <rect key="frame" x="24" y="209" width="331" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-Yk-FtN" customClass="VersaTimeLabel" customModule="VODApp" customModuleProvider="target">
-                            <rect key="frame" x="311.5" y="221" width="43.5" height="18"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-Yk-FtN" customClass="VersaTimeLabel" customModule="VODApp" customModuleProvider="target">
+                            <rect key="frame" x="355" y="221" width="0.0" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="18" id="Nzi-Sn-Eqg"/>
                             </constraints>
@@ -87,8 +86,8 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcc-Yu-P79">
-                            <rect key="frame" x="24" y="214" width="48" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mcc-Yu-P79">
+                            <rect key="frame" x="24" y="214" width="0.0" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -97,23 +96,23 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="aHH-Yk-FtN" firstAttribute="bottom" secondItem="RF3-Ed-2Py" secondAttribute="top" id="37L-LY-VgJ"/>
+                        <constraint firstItem="Jle-2g-Y6o" firstAttribute="top" secondItem="Gg2-RE-X9Y" secondAttribute="top" id="9mu-He-6yQ"/>
+                        <constraint firstItem="Jle-2g-Y6o" firstAttribute="leading" secondItem="Gg2-RE-X9Y" secondAttribute="leading" id="AKe-8k-XW5"/>
                         <constraint firstItem="uwO-fh-Msd" firstAttribute="leading" secondItem="Gg2-RE-X9Y" secondAttribute="leading" constant="24" id="B5U-zW-KaO"/>
                         <constraint firstItem="mcc-Yu-P79" firstAttribute="top" secondItem="uwO-fh-Msd" secondAttribute="bottom" constant="5" id="Bx3-of-mPZ"/>
                         <constraint firstItem="RF3-Ed-2Py" firstAttribute="bottom" secondItem="Gg2-RE-X9Y" secondAttribute="bottom" id="IRJ-Rq-YkY"/>
                         <constraint firstItem="RF3-Ed-2Py" firstAttribute="top" secondItem="mcc-Yu-P79" secondAttribute="bottom" constant="4" id="Lga-80-gM6"/>
-                        <constraint firstItem="d4W-H2-1VL" firstAttribute="top" secondItem="uwO-fh-Msd" secondAttribute="top" id="NqS-Pb-uDO"/>
                         <constraint firstItem="RF3-Ed-2Py" firstAttribute="top" secondItem="uwO-fh-Msd" secondAttribute="bottom" constant="30" id="Si9-5G-dZU"/>
-                        <constraint firstItem="d4W-H2-1VL" firstAttribute="leading" secondItem="Gg2-RE-X9Y" secondAttribute="leading" id="U0e-MO-FTw"/>
+                        <constraint firstAttribute="trailing" secondItem="Jle-2g-Y6o" secondAttribute="trailing" id="Xv8-FJ-Nq3"/>
                         <constraint firstItem="mcc-Yu-P79" firstAttribute="leading" secondItem="Gg2-RE-X9Y" secondAttribute="leading" constant="24" id="aGM-cW-icu"/>
                         <constraint firstAttribute="trailing" secondItem="uwO-fh-Msd" secondAttribute="trailing" constant="24" id="ayA-YF-4Fv"/>
                         <constraint firstAttribute="trailing" secondItem="RF3-Ed-2Py" secondAttribute="trailing" constant="24" id="cfX-KM-K4A"/>
                         <constraint firstAttribute="trailing" secondItem="aHH-Yk-FtN" secondAttribute="trailing" constant="24" id="fSt-ZN-cWf"/>
-                        <constraint firstAttribute="bottom" secondItem="d4W-H2-1VL" secondAttribute="bottom" id="iKA-5F-fZz"/>
-                        <constraint firstAttribute="trailing" secondItem="d4W-H2-1VL" secondAttribute="trailing" id="icq-BJ-deS"/>
+                        <constraint firstAttribute="bottom" secondItem="Jle-2g-Y6o" secondAttribute="bottom" id="pbM-Il-NnC"/>
                         <constraint firstItem="RF3-Ed-2Py" firstAttribute="leading" secondItem="Gg2-RE-X9Y" secondAttribute="leading" constant="24" id="qtQ-yG-PZM"/>
+                        <constraint firstItem="aHH-Yk-FtN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mcc-Yu-P79" secondAttribute="trailing" constant="10" id="vAS-fe-OzC"/>
                     </constraints>
                     <connections>
-                        <outlet property="controlBackground" destination="d4W-H2-1VL" id="u4P-4t-Kxm"/>
                         <outlet property="remainingTimeLabel" destination="aHH-Yk-FtN" id="Lzz-dM-FVE"/>
                         <outlet property="seekbarSlider" destination="RF3-Ed-2Py" id="n5W-65-Ai5"/>
                         <outlet property="videoSubtitle" destination="mcc-Yu-P79" id="Vke-fo-k6k"/>
@@ -131,7 +130,7 @@
                         <viewControllerLayoutGuide type="top" id="6cz-RF-uHw"/>
                         <viewControllerLayoutGuide type="bottom" id="bWH-lD-QCf"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" contentMode="scaleToFill" id="LU5-Wc-bmJ" customClass="ISHPullUpRoundedVisualEffectView">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="LU5-Wc-bmJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -139,17 +138,8 @@
                                 <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <subviews>
                                     <view opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="BMI-bJ-ShN" userLabel="Topview">
-                                        <rect key="frame" x="-1" y="0.0" width="375" height="59"/>
+                                        <rect key="frame" x="-1" y="0.0" width="375" height="120"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="PullUp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uA-x6-83s">
-                                                <rect key="frame" x="162.5" y="19" width="50" height="21"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="topViewLabel">
-                                                    <accessibilityTraits key="traits" button="YES" staticText="YES"/>
-                                                </accessibility>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Mn0-qG-1YV" customClass="ISHPullUpHandleView">
                                                 <rect key="frame" x="169.5" y="6" width="36" height="11"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -163,16 +153,13 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration" identifier="topViewHandle"/>
                                         <constraints>
-                                            <constraint firstItem="2uA-x6-83s" firstAttribute="top" secondItem="Mn0-qG-1YV" secondAttribute="bottom" constant="2" id="4DR-TU-Jki"/>
-                                            <constraint firstItem="2uA-x6-83s" firstAttribute="centerY" secondItem="BMI-bJ-ShN" secondAttribute="centerY" id="4OH-PH-3J2"/>
                                             <constraint firstItem="Mn0-qG-1YV" firstAttribute="top" secondItem="BMI-bJ-ShN" secondAttribute="top" constant="6" id="AY1-jF-o9W"/>
                                             <constraint firstItem="Mn0-qG-1YV" firstAttribute="centerX" secondItem="BMI-bJ-ShN" secondAttribute="centerX" id="B8E-2a-yJ2"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2uA-x6-83s" secondAttribute="bottom" constant="5" id="grV-4r-dwo"/>
-                                            <constraint firstItem="2uA-x6-83s" firstAttribute="centerX" secondItem="BMI-bJ-ShN" secondAttribute="centerX" id="v1H-xu-kFU"/>
+                                            <constraint firstAttribute="height" constant="120" id="NBR-8f-7Tn"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="K6O-YO-cZM">
-                                        <rect key="frame" x="0.0" y="59" width="374" height="759"/>
+                                        <rect key="frame" x="0.0" y="144" width="374" height="674"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IGA-wf-x25">
                                             <size key="itemSize" width="163" height="156"/>
@@ -211,7 +198,7 @@
                                 <constraints>
                                     <constraint firstItem="K6O-YO-cZM" firstAttribute="leading" secondItem="3F5-HF-NF9" secondAttribute="leading" id="0MX-79-lIW"/>
                                     <constraint firstAttribute="bottom" secondItem="K6O-YO-cZM" secondAttribute="bottom" id="2zD-PD-f2k"/>
-                                    <constraint firstItem="K6O-YO-cZM" firstAttribute="top" secondItem="BMI-bJ-ShN" secondAttribute="bottom" id="9cs-M3-slJ"/>
+                                    <constraint firstItem="K6O-YO-cZM" firstAttribute="top" secondItem="BMI-bJ-ShN" secondAttribute="bottom" constant="24" id="JNB-sp-AWu"/>
                                     <constraint firstItem="BMI-bJ-ShN" firstAttribute="top" secondItem="3F5-HF-NF9" secondAttribute="top" id="Vn2-dP-N1Q"/>
                                     <constraint firstAttribute="trailing" secondItem="K6O-YO-cZM" secondAttribute="trailing" id="WeV-id-hfF"/>
                                     <constraint firstItem="BMI-bJ-ShN" firstAttribute="leading" secondItem="3F5-HF-NF9" secondAttribute="leading" constant="-1" id="cn0-CZ-YvA"/>
@@ -236,7 +223,6 @@
                         <outlet property="collectionView" destination="K6O-YO-cZM" id="WLP-V0-sB7"/>
                         <outlet property="handleView" destination="Mn0-qG-1YV" id="svM-ZC-7ZW"/>
                         <outlet property="rootView" destination="3F5-HF-NF9" id="jkU-MJ-F6h"/>
-                        <outlet property="topLabel" destination="2uA-x6-83s" id="GJh-ic-hNW"/>
                         <outlet property="topView" destination="BMI-bJ-ShN" id="Izt-PR-EiH"/>
                     </connections>
                 </viewController>
@@ -245,4 +231,7 @@
             <point key="canvasLocation" x="857.97101449275374" y="101.78571428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gradient" width="375" height="271"/>
+    </resources>
 </document>

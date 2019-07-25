@@ -19,19 +19,21 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
     func didUpdate() {
         self.collectionView.reloadData()
     }
+    weak var videoPlayerView: VersaPlayerView?
     
-    
+    @IBOutlet weak var seekbarSlider: VersaSeekbarSlider!
+    @IBOutlet weak var titleLabel: UILabel!
     private var viewModel: PlayListViewModel!
     private var halfWayPoint = CGFloat(0)
     private var firstAppearanceCompleted = false
     
     weak var eventsDelegate: PlayListViewControllerEvents?
     weak var pullUpController: ISHPullUpViewController!
-
-    @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+
+    //needed for ISHPullUp component
+    @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var buttonLock: UIButton!
     @IBOutlet weak var handleView: ISHPullUpHandleView!
     @IBOutlet weak var topLabel: UILabel!
     
@@ -48,11 +50,16 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         topView.addGestureRecognizer(tapGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: UIApplication.didBecomeActiveNotification, object: nil)
+        
+   
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         firstAppearanceCompleted = true;
+        self.topView.addSubview(videoPlayerView!.controls!)
+        //self.collectionView.addSubview(time!)
+        //self.seekbarSlider = videoPlayerView?.controls?.seekbarSlider
     }
     
     //MARK: - UI actions
@@ -106,7 +113,7 @@ extension PlayListViewController {
  extension PlayListViewController {
     
     func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, minimumHeightForBottomViewController bottomVC: UIViewController) -> CGFloat {
-        return topView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height;
+        return topView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height + 50;
     }
     
     func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, maximumHeightForBottomViewController bottomVC: UIViewController, maximumAvailableHeight: CGFloat) -> CGFloat {
@@ -135,8 +142,16 @@ extension PlayListViewController {
     }
     
     func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, didChangeTo state: ISHPullUpState) {
-        topLabel.text = textForState(state);
-        handleView.setState(ISHPullUpHandleView.handleState(for: state), animated: firstAppearanceCompleted)
+        if let emptyText = videoPlayerView?.controls?.videoTitle?.text?.isEmpty  {
+            
+            if emptyText {
+               handleView.setState(ISHPullUpHandleView.handleState(for: state), animated: firstAppearanceCompleted)
+            } else {
+                handleView.isHidden = true
+            }
+            
+        }
+
         /*
         // Hide the scrollview in the collapsed state to avoid collision
         // with the soft home button on iPhone X
@@ -146,20 +161,6 @@ extension PlayListViewController {
          */
     }
     
-    private func textForState(_ state: ISHPullUpState) -> String {
-        switch state {
-        case .collapsed:
-            return "Drag up or tap"
-        case .intermediate:
-            return "Intermediate"
-        case .dragging:
-            return "Hold on"
-        case .expanded:
-            return "Drag down or tap"
-        @unknown default:
-            return "Unknown value"
-        }
-    }
 }
 
 

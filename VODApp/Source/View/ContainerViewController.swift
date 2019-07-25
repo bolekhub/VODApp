@@ -11,6 +11,9 @@ import ISHPullUp
 
 class ContainerViewController: ISHPullUpViewController {
     
+    private weak var mainViewController: MainViewController?
+    private weak var playListViewController: PlayListViewController?
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -22,9 +25,13 @@ class ContainerViewController: ISHPullUpViewController {
     }
     
     private func commonInit() {
+        self.dimmingColor = nil
         let storyboard = UIStoryboard(name: Storyboard.nameIdentifier.main.rawValue, bundle: nil)
         let mainContentVC = storyboard.instantiateViewController(withIdentifier: MainViewController.storyboardidentifier()) as! MainViewController
         let bottomVC = storyboard.instantiateViewController(withIdentifier: PlayListViewController.storyboardidentifier()) as! PlayListViewController
+        
+        mainViewController = mainContentVC
+        playListViewController = bottomVC
         
         contentViewController = mainContentVC
         bottomViewController = bottomVC
@@ -34,5 +41,13 @@ class ContainerViewController: ISHPullUpViewController {
         stateDelegate = bottomVC
         
         bottomVC.eventsDelegate = mainContentVC
+    }
+    
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        playListViewController?.videoPlayerView = mainViewController?.playerView
+
     }
 }
