@@ -22,6 +22,8 @@
 		0758528422E5CB42008CE1E1 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758528322E5CB42008CE1E1 /* DownloadService.swift */; };
 		0758528622E5CB9B008CE1E1 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758528522E5CB9B008CE1E1 /* Download.swift */; };
 		0758528822E5CC07008CE1E1 /* DServiceSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758528722E5CC07008CE1E1 /* DServiceSessionDelegate.swift */; };
+		07695F8C22EAD919000E0E9D /* PlayListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07695F8B22EAD919000E0E9D /* PlayListItem.swift */; };
+		07695F9022EAE460000E0E9D /* VideModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07695F8F22EAE460000E0E9D /* VideModelTest.swift */; };
 		07EA71C422E76B2500B14A60 /* OneSignal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EA71C322E76B2400B14A60 /* OneSignal.framework */; };
 		07EA71C522E76B2500B14A60 /* OneSignal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07EA71C322E76B2400B14A60 /* OneSignal.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		07EA71CE22E79B2200B14A60 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71CD22E79B2200B14A60 /* String+Helper.swift */; };
@@ -111,6 +113,8 @@
 		0758528322E5CB42008CE1E1 /* DownloadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		0758528522E5CB9B008CE1E1 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		0758528722E5CC07008CE1E1 /* DServiceSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DServiceSessionDelegate.swift; sourceTree = "<group>"; };
+		07695F8B22EAD919000E0E9D /* PlayListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListItem.swift; sourceTree = "<group>"; };
+		07695F8F22EAE460000E0E9D /* VideModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideModelTest.swift; sourceTree = "<group>"; };
 		07EA71C322E76B2400B14A60 /* OneSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneSignal.framework; path = Carthage/Build/iOS/OneSignal.framework; sourceTree = "<group>"; };
 		07EA71C822E76B9100B14A60 /* VODApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VODApp.entitlements; sourceTree = "<group>"; };
 		07EA71CD22E79B2200B14A60 /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 			children = (
 				0758525C22E5A2F3008CE1E1 /* VODAppTests.swift */,
 				0758525E22E5A2F3008CE1E1 /* Info.plist */,
+				07695F8F22EAE460000E0E9D /* VideModelTest.swift */,
 			);
 			path = VODAppTests;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 			children = (
 				0758527A22E5B6E7008CE1E1 /* PlayListItemVO.swift */,
 				0758528522E5CB9B008CE1E1 /* Download.swift */,
+				07695F8B22EAD919000E0E9D /* PlayListItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +284,22 @@
 				0758527E22E5BC08008CE1E1 /* payload.json */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		07695F8922EAD546000E0E9D /* Video PLayer */ = {
+			isa = PBXGroup;
+			children = (
+				0758524622E5A2F2008CE1E1 /* MainViewController.swift */,
+			);
+			name = "Video PLayer";
+			sourceTree = "<group>";
+		};
+		07695F8A22EAD55D000E0E9D /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				07EA722422E861A700B14A60 /* ContainerViewController.swift */,
+			);
+			name = Container;
 			sourceTree = "<group>";
 		};
 		07EA71C922E796A900B14A60 /* Extensions */ = {
@@ -331,9 +353,9 @@
 		07EA71E422E7BC4900B14A60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				07695F8A22EAD55D000E0E9D /* Container */,
+				07695F8922EAD546000E0E9D /* Video PLayer */,
 				07EA722922E89BE800B14A60 /* PlayList */,
-				0758524622E5A2F2008CE1E1 /* MainViewController.swift */,
-				07EA722422E861A700B14A60 /* ContainerViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -612,6 +634,7 @@
 				07EA721722E7D58D00B14A60 /* VersaPlayerPlaybackDelegate.swift in Sources */,
 				07EA721A22E7D58D00B14A60 /* VersaPlayer.swift in Sources */,
 				07EA721B22E7D58D00B14A60 /* VersaPlayerCaptionStyling.swift in Sources */,
+				07695F8C22EAD919000E0E9D /* PlayListItem.swift in Sources */,
 				07EA71D222E79B6E00B14A60 /* UIColor+Helpers.swift in Sources */,
 				07EA721322E7D58D00B14A60 /* VersaPlayerView.swift in Sources */,
 				07EA71E622E7BCE800B14A60 /* PlayListViewController.swift in Sources */,
@@ -636,6 +659,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0758525D22E5A2F3008CE1E1 /* VODAppTests.swift in Sources */,
+				07695F9022EAE460000E0E9D /* VideModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

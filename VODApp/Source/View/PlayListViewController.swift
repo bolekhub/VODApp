@@ -10,15 +10,18 @@ import Foundation
 import ISHPullUp
 
 
+/// sent events for user interacting with the playlist
 protocol PlayListViewControllerEvents: class {
-    func didSelectVideo(video: Video)
+    /// when a video from the list is selected
+    ///
+    /// - Parameter video: the selected video
+    func didSelectVideo(video: PlayListItem)
 }
 
 class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PlayListViewModelEvents {
     
-    func didUpdate() {
-        self.collectionView.reloadData()
-    }
+
+    /// Reference to videoPlayer from mainView
     weak var videoPlayerView: VersaPlayerView?
     
     @IBOutlet weak var seekbarSlider: VersaSeekbarSlider!
@@ -74,6 +77,11 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
     @objc
     private func refreshData(){
         self.viewModel.fetchData()
+    }
+    
+    //MARK: - PlayListViewModelEvents
+    func didUpdate() {
+        self.collectionView.reloadData()
     }
     
     class func fromStoryboard() -> PlayListViewController {
