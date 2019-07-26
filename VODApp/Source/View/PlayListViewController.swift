@@ -9,36 +9,31 @@
 import Foundation
 import ISHPullUp
 
-
-/// sent events for user interacting with the playlist
-protocol PlayListViewControllerEvents: class {
-    /// when a video from the list is selected
-    ///
-    /// - Parameter video: the selected video
-    func didSelectVideo(video: PlayListItem)
-}
-
 class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PlayListViewModelEvents {
     
 
     /// Reference to videoPlayer from mainView
     weak var videoPlayerView: VersaPlayerView?
-    
-    @IBOutlet weak var seekbarSlider: VersaSeekbarSlider!
-    @IBOutlet weak var titleLabel: UILabel!
+
+    /// viewmodel
     private var viewModel: PlayListViewModel!
-    private var halfWayPoint = CGFloat(0)
-    private var firstAppearanceCompleted = false
     
-    weak var eventsDelegate: PlayListViewControllerEvents?
+    /// calculate the middlepoint when draging the view
+    private var halfWayPoint = CGFloat(0)
+    
+    /// indicate when the bottom viewcontroller appear for this time
+    private var firstAppearanceCompleted = false
+
+    /// container viewcontroller
     weak var pullUpController: ISHPullUpViewController!
+    
+    /// play list items
     @IBOutlet weak var collectionView: UICollectionView!
 
     //needed for ISHPullUp component
     @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var handleView: ISHPullUpHandleView!
-    @IBOutlet weak var topLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,15 +49,12 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
         topView.addGestureRecognizer(tapGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: UIApplication.didBecomeActiveNotification, object: nil)
         
-   
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         firstAppearanceCompleted = true;
         self.topView.addSubview(videoPlayerView!.controls!)
-        //self.collectionView.addSubview(time!)
-        //self.seekbarSlider = videoPlayerView?.controls?.seekbarSlider
     }
     
     //MARK: - UI actions
@@ -84,6 +76,7 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
         self.collectionView.reloadData()
     }
     
+    //MARK: - static methods
     class func fromStoryboard() -> PlayListViewController {
         let sb = UIStoryboard(name: Storyboard.nameIdentifier.main.rawValue, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: PlayListViewController.storyboardidentifier())
@@ -112,7 +105,10 @@ extension PlayListViewController {
     
     //UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        eventsDelegate?.didSelectVideo(video: self.viewModel.items[indexPath.row])
+
+        let playerItem = self.viewModel.configurePlayer(self.videoPlayerView!,
+                                                        forSelectedIndex: indexPath)
+        videoPlayerView?.set(item: playerItem)
         pullUpController.toggleState(animated: true)
     }
 }

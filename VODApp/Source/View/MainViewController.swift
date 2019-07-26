@@ -9,7 +9,8 @@
 import UIKit
 import ISHPullUp
 
-class MainViewController: UIViewController, ISHPullUpContentDelegate, PlayListViewControllerEvents {
+class MainViewController: UIViewController, ISHPullUpContentDelegate {
+    
 
     @IBOutlet weak var playerView: VersaPlayerView!
     @IBOutlet weak var playerControls: VersaPlayerControls!
@@ -44,12 +45,4 @@ class MainViewController: UIViewController, ISHPullUpContentDelegate, PlayListVi
         playerView.layoutIfNeeded()
     }
     
-    //MARK: - PlayListViewControllerEvents
-    func didSelectVideo(video: PlayListItem) {
-        let item = VersaPlayerItem(url: video.localUrl)
-        playerView.set(item: item)
-        playerControls.videoTitle?.text = video.title
-        playerControls.videoSubtitle?.text = video.subtitle
-    }
 }
-

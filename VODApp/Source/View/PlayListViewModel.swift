@@ -59,6 +59,20 @@ class PlayListViewModel {
         let videoItem = items[indexPath.row]
         cell.configureCell(with: videoItem)
     }
+
+    /// configure player controls ( title, subtitle ) and create an instance of VersaPlayerItem
+    ///
+    /// - Parameters:
+    ///   - playerView: the video player instance
+    ///   - indexPath: collectionview selected index
+    /// - Returns: new instance of VersaPlayerItem
+    func configurePlayer(_ playerView :VersaPlayerView, forSelectedIndex indexPath : IndexPath) -> VersaPlayerItem {
+        let modelItem = self.items[indexPath.row]
+        let playerItem = VersaPlayerItem(url: modelItem.localUrl)
+        playerView.controls?.videoTitle?.text = modelItem.title
+        playerView.controls?.videoSubtitle.text = modelItem.subtitle
+        return playerItem
+    }
     
     
     /// Convert Video entity to PlayListItem adpating Entity properties to View
