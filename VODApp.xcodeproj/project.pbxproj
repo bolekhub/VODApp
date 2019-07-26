@@ -31,7 +31,6 @@
 		07EA71D622E79C6400B14A60 /* UIFont+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D522E79C6400B14A60 /* UIFont+Types.swift */; };
 		07EA71D822E79CC800B14A60 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D722E79CC800B14A60 /* Color.swift */; };
 		07EA71DA22E79D5A00B14A60 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D922E79D5A00B14A60 /* Constants.swift */; };
-		07EA71DC22E79E9E00B14A60 /* AppDelegate+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71DB22E79E9E00B14A60 /* AppDelegate+Functions.swift */; };
 		07EA71DE22E79F8200B14A60 /* AppDelegate+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71DD22E79F8200B14A60 /* AppDelegate+Push.swift */; };
 		07EA71E122E7A60300B14A60 /* PlayListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71E022E7A60300B14A60 /* PlayListRepository.swift */; };
 		07EA71E322E7A72400B14A60 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71E222E7A72400B14A60 /* CoreDataDAO.swift */; };
@@ -121,7 +120,6 @@
 		07EA71D522E79C6400B14A60 /* UIFont+Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Types.swift"; sourceTree = "<group>"; };
 		07EA71D722E79CC800B14A60 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		07EA71D922E79D5A00B14A60 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		07EA71DB22E79E9E00B14A60 /* AppDelegate+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Functions.swift"; sourceTree = "<group>"; };
 		07EA71DD22E79F8200B14A60 /* AppDelegate+Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
 		07EA71E022E7A60300B14A60 /* PlayListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListRepository.swift; sourceTree = "<group>"; };
 		07EA71E222E7A72400B14A60 /* CoreDataDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
@@ -289,7 +287,6 @@
 				07EA71CF22E79B3D00B14A60 /* Notification+Constants.swift */,
 				07EA71D122E79B6E00B14A60 /* UIColor+Helpers.swift */,
 				07EA71D522E79C6400B14A60 /* UIFont+Types.swift */,
-				07EA71DB22E79E9E00B14A60 /* AppDelegate+Functions.swift */,
 				07EA71DD22E79F8200B14A60 /* AppDelegate+Push.swift */,
 				07EA722C22E8A95200B14A60 /* AVAsset+Helpers.swift */,
 				07EA723022E8DF9200B14A60 /* UIView+Borders.swift */,
@@ -626,7 +623,6 @@
 				07EA721622E7D58D00B14A60 /* VersaPlayerDecryptionDelegate.swift in Sources */,
 				0758527B22E5B6E7008CE1E1 /* PlayListItemVO.swift in Sources */,
 				0758527922E5AA0F008CE1E1 /* UIApplication+SimulatorRemoteNotifications.m in Sources */,
-				07EA71DC22E79E9E00B14A60 /* AppDelegate+Functions.swift in Sources */,
 				07EA721E22E851BE00B14A60 /* VideoDataStore.swift in Sources */,
 				07EA720B22E7D58D00B14A60 /* VersaPlayerControlsBehaviour.swift in Sources */,
 				0758528822E5CC07008CE1E1 /* DServiceSessionDelegate.swift in Sources */,
