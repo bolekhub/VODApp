@@ -13,7 +13,7 @@ extension AVAsset {
     func generateThumbnail() -> UIImage? {
         let assetImgGenerate : AVAssetImageGenerator = AVAssetImageGenerator(asset: self)
         assetImgGenerate.appliesPreferredTrackTransform = true
-        let time = CMTimeMake(value: 1, timescale:  2)
+        let time = CMTimeMake(value: 4, timescale:  1)
         let img = try? assetImgGenerate.copyCGImage(at: time, actualTime: nil)
         if img != nil {
             let frameImg  = UIImage(cgImage: img!)

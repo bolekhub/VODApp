@@ -17,7 +17,8 @@ class MainViewController: UIViewController, ISHPullUpContentDelegate, PlayListVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        playerView.layer.backgroundColor = UIColor.black.cgColor
+        //playerView.layer.backgroundColor = UIColor.black.cgColor
+        playerView.layer.contents = UIImage(named: "rosalia_blured")?.cgImage
         playerView.use(controls: self.playerControls)
     }
 
@@ -44,9 +45,8 @@ class MainViewController: UIViewController, ISHPullUpContentDelegate, PlayListVi
     }
     
     //MARK: - PlayListViewControllerEvents
-    func didSelectVideo(video: Video) {
-        let videoUrl = documentsPath.appendingPathComponent(video.fileName!)
-        let item = VersaPlayerItem(url: videoUrl)
+    func didSelectVideo(video: PlayListItem) {
+        let item = VersaPlayerItem(url: video.localUrl)
         playerView.set(item: item)
         playerControls.videoTitle?.text = video.title
         playerControls.videoSubtitle?.text = video.subtitle
