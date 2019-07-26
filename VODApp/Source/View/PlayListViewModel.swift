@@ -15,6 +15,8 @@ protocol PlayListViewModelEvents: class {
 /// get data from the store, adapt data to view friendly state and configure views
 class PlayListViewModel {
     
+    private var currentPlayedItem :PlayListItem?
+    
     /// data store having video entities
     private var store: PlayListRepositoryConformable
     /// indicate when viewmodel is working
@@ -68,12 +70,28 @@ class PlayListViewModel {
     /// - Returns: new instance of VersaPlayerItem
     func configurePlayer(_ playerView :VersaPlayerView, forSelectedIndex indexPath : IndexPath) -> VersaPlayerItem {
         let modelItem = self.items[indexPath.row]
+        self.currentPlayedItem = modelItem
         let playerItem = VersaPlayerItem(url: modelItem.localUrl)
         playerView.controls?.videoTitle?.text = modelItem.title
         playerView.controls?.videoSubtitle.text = modelItem.subtitle
         return playerItem
     }
     
+    
+    func randomNextVideo(inPlayer player:VersaPlayerView) {
+        
+        
+        let filteredItems =  self.items.filter { (playListItem) -> Bool in
+            return playListItem != self.currentPlayedItem
+
+        }
+        
+        let index = Int.random(in: 0...filteredItems.count-1)
+        let randomVideo = filteredItems[index]
+        let playerItem = VersaPlayerItem(url: randomVideo.localUrl)
+        self.currentPlayedItem = randomVideo
+        player.set(item: playerItem)
+    }
     
     /// Convert Video entity to PlayListItem adpating Entity properties to View
     ///

@@ -51,10 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
         #endif
-        
+        /*
         let center = UNUserNotificationCenter.current()
         center.removePendingNotificationRequests(withIdentifiers: [kDownloadReadyNotificationRequestIdentifier])
-
+ */
         return true
     }
 
@@ -82,12 +82,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
-    
+    /*
     func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
         completionHandler()
         print("handleEventsForBackgroundURLSession")
     }
-    
+    */
     
 }
 
@@ -125,6 +125,7 @@ extension AppDelegate {
     
     func fireDownloadReadyNotification() {
         let center = UNUserNotificationCenter.current()
+        
         center.add(self.downloadReadyNotification) { (error) in
             if (error != nil) {
                 debugPrint("something went wrong with Local notif.")

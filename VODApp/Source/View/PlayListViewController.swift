@@ -9,7 +9,12 @@
 import Foundation
 import ISHPullUp
 
-class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PlayListViewModelEvents {
+class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PlayListViewModelEvents, PlayerSwipeGestureConformable {
+    
+    func handleSwipe(direction: UISwipeGestureRecognizer.Direction) {
+        viewModel.randomNextVideo(inPlayer: self.videoPlayerView!)
+    }
+    
     
 
     /// Reference to videoPlayer from mainView
@@ -55,6 +60,8 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
         super.viewDidAppear(animated)
         firstAppearanceCompleted = true;
         self.topView.addSubview(videoPlayerView!.controls!)
+        guard videoPlayerView?.gestureDelegate == nil else { return }
+        videoPlayerView?.gestureDelegate = self
     }
     
     //MARK: - UI actions
