@@ -26,17 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
-    internal lazy var downloadReadyNotification: UNNotificationRequest  = {
-        let content = UNMutableNotificationContent()
-        content.title = "New content available"
-        content.body = "There are new videos for offline play.! enjoy"
-        content.sound = UNNotificationSound.default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
-        let request = UNNotificationRequest(identifier: kDownloadReadyNotificationRequestIdentifier,
-                                            content: content,
-                                            trigger: trigger)
-        return request
-    }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -51,10 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
         #endif
-        /*
-        let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: [kDownloadReadyNotificationRequestIdentifier])
- */
+
         return true
     }
 
@@ -126,10 +112,15 @@ extension AppDelegate {
     func fireDownloadReadyNotification() {
         let center = UNUserNotificationCenter.current()
         
-        center.add(self.downloadReadyNotification) { (error) in
-            if (error != nil) {
-                debugPrint("something went wrong with Local notif.")
-            }
-        }
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let content = UNMutableNotificationContent()
+        content.title = "New content available"
+        content.body = "There are new videos for offline play.! enjoy"
+        content.sound = UNNotificationSound.default
+        let request = UNNotificationRequest(identifier: kDownloadReadyNotificationRequestIdentifier,
+                                            content: content,
+                                            trigger: trigger)
+        center.add(request, withCompletionHandler: nil)
+
     }
 }

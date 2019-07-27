@@ -17,8 +17,10 @@ class PlayListViewModel {
     
     /// data store having video entities
     private var store: PlayListRepositoryConformable
+    
     /// indicate when viewmodel is working
     private var isUpdating: Bool = false
+    
     /// sequence that guarantee the uniqueness of items
     private var itemsSet : Set<PlayListItem> = Set<PlayListItem>() {
         didSet{

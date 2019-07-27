@@ -11,7 +11,7 @@ import Foundation
 /// limit download of files to this size. 20Mb
 let maxDownloadSize = 20971520
 let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-let kDownloadReadyNotificationRequestIdentifier = "123"
+let kDownloadReadyNotificationRequestIdentifier = "DownloadReadyNotificationRequestIdentifier"
 
 enum Storyboard {
     

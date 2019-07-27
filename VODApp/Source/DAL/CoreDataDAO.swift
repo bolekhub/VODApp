@@ -17,11 +17,13 @@ class CoreDataDAO: PlayListRepositoryConformable  {
         return appDelegate
     }()
     
+    /// coredata stack
     private lazy var persitentContainer: NSPersistentContainer? = {
         [unowned self] in
         return self.appDelegate?.persistentContainer
     }()
     
+    /// context to be used by main thread
     private lazy var mainContext: NSManagedObjectContext? = {
         [unowned self] in
         return self.appDelegate?.persistentContainer.viewContext

@@ -11,14 +11,6 @@ import ISHPullUp
 
 class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PlayListViewModelEvents, PlayerSwipeGestureConformable {
     
-    func handleSwipe(direction: UISwipeGestureRecognizer.Direction) {
-        if let nextVideo =  viewModel.nextVideo(inPlayer: self.videoPlayerView!) {
-            self.videoPlayerView?.set(item: nextVideo)
-            handleView.isHidden = true
-        }
-    }
-    
-    
     /// Reference to videoPlayer from mainView
     weak var videoPlayerView: VersaPlayerView?
 
@@ -37,11 +29,16 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
     /// play list items
     @IBOutlet weak var collectionView: UICollectionView!
 
-    //needed for ISHPullUp component
+    //needed for ISHPullUp component, its the superview for all components.
     @IBOutlet weak var rootView: UIView!
+    
+    /// where the video controls are palced
     @IBOutlet weak var topView: UIView!
+    
+    /// blue line indicating drag direction. Appear just when no video is selected
     @IBOutlet weak var handleView: ISHPullUpHandleView!
     
+    //MARK - ViewLifecicle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,6 +78,13 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
         self.viewModel.fetchData()
     }
     
+    func handleSwipe(direction: UISwipeGestureRecognizer.Direction) {
+        if let nextVideo = viewModel.nextVideo(inPlayer: self.videoPlayerView!) {
+            self.videoPlayerView?.set(item: nextVideo)
+            handleView.isHidden = true
+        }
+    }
+    
     //MARK: - PlayListViewModelEvents
     func didUpdate() {
         self.collectionView.reloadData()
@@ -102,6 +106,7 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
 
 //MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension PlayListViewController {
+    
     //UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.items.count
@@ -156,22 +161,16 @@ extension PlayListViewController {
     }
     
     func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, didChangeTo state: ISHPullUpState) {
+        
         if let emptyText = videoPlayerView?.controls?.videoTitle?.text?.isEmpty  {
             
             if emptyText {
+                
                handleView.setState(ISHPullUpHandleView.handleState(for: state), animated: firstAppearanceCompleted)
             } else {
                 handleView.isHidden = true
             }
         }
-
-        /*
-        // Hide the scrollview in the collapsed state to avoid collision
-        // with the soft home button on iPhone X
-        UIView.animate(withDuration: 0.25) { [weak self] in
-            self?.scrollView.alpha = (state == .collapsed) ? 0 : 1;
-        }
-         */
     }
     
 }
