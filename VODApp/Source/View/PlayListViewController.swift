@@ -12,11 +12,13 @@ import ISHPullUp
 class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PlayListViewModelEvents, PlayerSwipeGestureConformable {
     
     func handleSwipe(direction: UISwipeGestureRecognizer.Direction) {
-        viewModel.randomNextVideo(inPlayer: self.videoPlayerView!)
+        if let nextVideo =  viewModel.nextVideo(inPlayer: self.videoPlayerView!) {
+            self.videoPlayerView?.set(item: nextVideo)
+            handleView.isHidden = true
+        }
     }
     
     
-
     /// Reference to videoPlayer from mainView
     weak var videoPlayerView: VersaPlayerView?
 
@@ -53,7 +55,7 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         topView.addGestureRecognizer(tapGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: UIApplication.didBecomeActiveNotification, object: nil)
-        
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +65,7 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
         guard videoPlayerView?.gestureDelegate == nil else { return }
         videoPlayerView?.gestureDelegate = self
     }
+    
     
     //MARK: - UI actions
     @objc
@@ -160,7 +163,6 @@ extension PlayListViewController {
             } else {
                 handleView.isHidden = true
             }
-            
         }
 
         /*

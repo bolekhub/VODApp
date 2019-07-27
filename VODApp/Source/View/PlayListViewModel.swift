@@ -15,8 +15,6 @@ protocol PlayListViewModelEvents: class {
 /// get data from the store, adapt data to view friendly state and configure views
 class PlayListViewModel {
     
-    private var currentPlayedItem :PlayListItem?
-    
     /// data store having video entities
     private var store: PlayListRepositoryConformable
     /// indicate when viewmodel is working
@@ -25,6 +23,17 @@ class PlayListViewModel {
     private var itemsSet : Set<PlayListItem> = Set<PlayListItem>() {
         didSet{
             self.delegate?.didUpdate()
+        }
+    }
+    
+    /// keep track of played items Id. It will be cleared once all videos are played. 
+    private var playedItemId = [String]() {
+        didSet {
+            if (playedItemId.count == self.items.count) {
+                do {
+                    playedItemId.removeAll()
+                }
+            }
         }
     }
     
@@ -62,6 +71,20 @@ class PlayListViewModel {
         cell.configureCell(with: videoItem)
     }
 
+    /// convert data in the model passed to an object that VersaPlayerView can handle to be played. It also update the title and subtitle of the played video.
+    ///
+    /// - Parameters:
+    ///   - modelItem: PlayListItem
+    ///   - playerView: VersaPlayerView
+    /// - Returns: VersaPlayerItem
+    fileprivate func playableItem(using modelItem: PlayListItem, for playerView: VersaPlayerView) -> VersaPlayerItem {
+        playedItemId.append(modelItem.id!)
+        let playerItem = VersaPlayerItem(url: modelItem.localUrl)
+        playerView.controls?.videoTitle?.text = modelItem.title
+        playerView.controls?.videoSubtitle.text = modelItem.subtitle
+        return playerItem
+    }
+    
     /// configure player controls ( title, subtitle ) and create an instance of VersaPlayerItem
     ///
     /// - Parameters:
@@ -69,28 +92,25 @@ class PlayListViewModel {
     ///   - indexPath: collectionview selected index
     /// - Returns: new instance of VersaPlayerItem
     func configurePlayer(_ playerView :VersaPlayerView, forSelectedIndex indexPath : IndexPath) -> VersaPlayerItem {
+        
         let modelItem = self.items[indexPath.row]
-        self.currentPlayedItem = modelItem
-        let playerItem = VersaPlayerItem(url: modelItem.localUrl)
-        playerView.controls?.videoTitle?.text = modelItem.title
-        playerView.controls?.videoSubtitle.text = modelItem.subtitle
-        return playerItem
+        return playableItem(using: modelItem, for: playerView)
     }
     
     
-    func randomNextVideo(inPlayer player:VersaPlayerView) {
-        
-        
-        let filteredItems =  self.items.filter { (playListItem) -> Bool in
-            return playListItem != self.currentPlayedItem
+    /// pop a new video form the videos array. When all videos are played it start over by first. It configure the item to be played and title, subtitle as well
+    ///
+    /// - Parameter player: VersaPlayerItem
+    /// - Returns: VersaPlayerItem
+    func nextVideo(inPlayer player:VersaPlayerView) -> VersaPlayerItem? {
 
+        let nextVideoCandidate = itemsSet.first { (plItem) -> Bool in
+            return ( !(playedItemId.contains(plItem.id!)) )
         }
-        
-        let index = Int.random(in: 0...filteredItems.count-1)
-        let randomVideo = filteredItems[index]
-        let playerItem = VersaPlayerItem(url: randomVideo.localUrl)
-        self.currentPlayedItem = randomVideo
-        player.set(item: playerItem)
+        guard let videoCandidate = nextVideoCandidate else {
+            return nil
+        }
+        return playableItem(using: videoCandidate, for: player)
     }
     
     /// Convert Video entity to PlayListItem adpating Entity properties to View
