@@ -90,6 +90,7 @@ class DSSessionDelegate: NSObject, URLSessionDelegate, URLSessionTaskDelegate, U
         if (totalBytesExpectedToWrite > maxDownloadSize) {
             if let strUrl = downloadTask.originalRequest?.url?.absoluteString,
                 let download = DownloadService.default.findDownloads(byStringUrl: strUrl) {
+                downloadTask.cancel()
                 self.delegate?.didFailDownloading(download, isFileOversized: true)
             }
         }

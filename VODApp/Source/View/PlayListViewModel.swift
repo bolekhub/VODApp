@@ -53,7 +53,6 @@ class PlayListViewModel {
     
     init(dataStore: PlayListRepositoryConformable) {
         self.store = dataStore
-        fetchData()
     }
     
     /// get data from the store

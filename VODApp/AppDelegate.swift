@@ -8,24 +8,12 @@
 
 import UIKit
 import CoreData
-import UserNotifications
 import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    public let dataStore: VideoDataStore = VideoDataStore(usingDAO: CoreDataDAO())
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "VODApp")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                debugPrint("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -65,37 +53,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
     }
 
-    /*
+    
     func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
         completionHandler()
         print("handleEventsForBackgroundURLSession")
     }
-    */
     
 }
 
 
 
 extension AppDelegate {
-    
-    // MARK: - Core Data Saving support
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-    
     
     func registerForLocalNotifications() {
         let options: UNAuthorizationOptions = [.alert, .sound];
@@ -108,19 +78,4 @@ extension AppDelegate {
         }
     }
     
-    
-    func fireDownloadReadyNotification() {
-        let center = UNUserNotificationCenter.current()
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-        let content = UNMutableNotificationContent()
-        content.title = "New content available"
-        content.body = "There are new videos for offline play.! enjoy"
-        content.sound = UNNotificationSound.default
-        let request = UNNotificationRequest(identifier: kDownloadReadyNotificationRequestIdentifier,
-                                            content: content,
-                                            trigger: trigger)
-        center.add(request, withCompletionHandler: nil)
-
-    }
 }

@@ -7,12 +7,17 @@
 //
 
 import Foundation
+import UserNotifications
 
 /// Handle all network related task
 class DownloadService: NSObject, DSSessionDelegateConformable {
 
+    public let dataStore: VideoDataStore = VideoDataStore(usingDAO: CoreDataDAO.shared)
+
     /// its a bag containing all downloads that this class is handling.
     private var downloads = Set<Download>()
+    
+    private var retryCount = 0
     
     private var playListItems: [PlayListItemVO] {
         let r = downloads.compactMap { (dld) -> PlayListItemVO? in
@@ -88,31 +93,30 @@ class DownloadService: NSObject, DSSessionDelegateConformable {
         download.inProgress = false
         download.complete = true
         if (self.allDownloadsCompleted == true ) {
-            debugPrint("ALL DOWNLOADS READY")
-            DispatchQueue.main.async {
-                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                    return
-                }
-                appDelegate.fireDownloadReadyNotification()
-                appDelegate.dataStore.batchSave(items: self.playListItems)
+                self.fireDownloadReadyNotification()
+                self.dataStore.batchSave(items: self.playListItems)
                 self.remoteNotificationHandler( .newData)
-            }
         } else {
             debugPrint("completed \(download.item.title)")
         }
     }
     
     func didFailDownloading(_ download: Download, isFileOversized: Bool) {
-        download.failed = true
-        download.cancel(oversized: isFileOversized)
-        if (isFileOversized == true) {
-            self.downloads.remove(download)
-        }
-        debugPrint("failed \(download.item.title)")
+        objc_sync_enter(self)
+            download.failed = true
+            download.cancel(oversized: isFileOversized)
+            if (isFileOversized == true) {
+                self.downloads.remove(download)
+            }
+            debugPrint("failed \(download.item.title)")
         
-        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { [unowned self] (timer) in
-            self.retryFailedDownloads()
+        if retryCount < self.downloads.count {
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [unowned self] (timer) in
+                self.retryFailedDownloads()
+                self.retryCount += 1
+            }
         }
+        objc_sync_exit(self)
     }
 }
 
@@ -175,4 +179,22 @@ extension DownloadService {
     }
     
     
+}
+
+
+private extension DownloadService {
+    
+    func fireDownloadReadyNotification() {
+        let center = UNUserNotificationCenter.current()
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let content = UNMutableNotificationContent()
+        content.title = "New content available"
+        content.body = "There are new videos for offline play.! enjoy"
+        content.sound = UNNotificationSound.default
+        let request = UNNotificationRequest(identifier: kDownloadReadyNotificationRequestIdentifier,
+                                            content: content,
+                                            trigger: trigger)
+        center.add(request, withCompletionHandler: nil)
+    }
 }

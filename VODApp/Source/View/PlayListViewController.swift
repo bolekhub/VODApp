@@ -47,7 +47,7 @@ PlayerSwipeGestureConformable {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        let dataStore = VideoDataStore(usingDAO: CoreDataDAO())
+        let dataStore = VideoDataStore(usingDAO: CoreDataDAO.shared)
         viewModel = PlayListViewModel(dataStore: dataStore)
         viewModel.delegate = self
         
@@ -71,9 +71,6 @@ PlayerSwipeGestureConformable {
     @objc
     private func handleTapGesture(gesture: UITapGestureRecognizer) {
         
-        if pullUpController.isLocked {
-            return
-        }
         pullUpController.toggleState(animated: true)
     }
     

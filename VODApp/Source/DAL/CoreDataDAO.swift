@@ -9,36 +9,46 @@
 import Foundation
 import CoreData
 
-/// specific implementation to save items with coreData
+/// specific implementation to save items with coreData. Due to persistent container must be the same along all app. This class representing coredata storage its a singleton.
 class CoreDataDAO: PlayListRepositoryConformable  {
+
+    /// singleton instance
+    static let shared: CoreDataDAO = CoreDataDAO()
     
-    private lazy var appDelegate : AppDelegate? = {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
-        return appDelegate
+    /// object representing core data stack.
+    private lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "VODApp")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                debugPrint("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
     }()
-    
-    /// coredata stack
-    private lazy var persitentContainer: NSPersistentContainer? = {
-        [unowned self] in
-        return self.appDelegate?.persistentContainer
-    }()
+
+
+    private init(){}
     
     /// context to be used by main thread
     private lazy var mainContext: NSManagedObjectContext? = {
         [unowned self] in
-        return self.appDelegate?.persistentContainer.viewContext
+        return self.persistentContainer.viewContext
     }()
     
+    /// background context
     private lazy var privateContext: NSManagedObjectContext? = {
-        return self.persitentContainer?.newBackgroundContext()
+        return self.persistentContainer.newBackgroundContext()
     }()
     
+    /// return the specified fetch request
+    ///
+    /// - Parameter name: the name of the fetchrequest declared in the model
+    /// see (VODAppTest.xcdatamodel) FETCH REQUESTS section for more detail
+    /// - Returns: NSFetchRequest<NSFetchRequestResult>?
     private func fetchTemplate(withname name : String) -> NSFetchRequest<NSFetchRequestResult>? {
-        return self.appDelegate?.persistentContainer.managedObjectModel.fetchRequestTemplate(forName: name)
+        return self.persistentContainer.managedObjectModel.fetchRequestTemplate(forName: name)
     }
     
-    
-
     func batchSave(items: [PlayListItemVO]) {
         
         guard let ctx = self.privateContext else {
@@ -49,41 +59,34 @@ class CoreDataDAO: PlayListRepositoryConformable  {
             
             items.forEach { (playListItem) in
                 
-                var entity: Video
-                
                 if let existingEntity = self.getBy(id: playListItem.id!) {
                     
-                    entity = existingEntity
+                    existingEntity.title = playListItem.title
+                    existingEntity.subtitle = playListItem.subtitle ?? ""
+                    existingEntity.url = playListItem.url
+                    existingEntity.identifier = playListItem.id
+                    existingEntity.fileName = playListItem.sourceURL()!.lastPathComponent
+                    
+                } else {
+                    let entity = Video(context: ctx)
                     entity.title = playListItem.title
                     entity.subtitle = playListItem.subtitle ?? ""
                     entity.url = playListItem.url
                     entity.identifier = playListItem.id
                     entity.fileName = playListItem.sourceURL()!.lastPathComponent
-                    
-                } else {
-                    
-                    entity = Video(context: ctx)
                 }
-                
-                entity.title = playListItem.title
-                entity.subtitle = playListItem.subtitle ?? ""
-                entity.url = playListItem.url
-                entity.identifier = playListItem.id
-                entity.fileName = playListItem.sourceURL()!.lastPathComponent
-                
+  
             }
             
             self.saveContext(context: ctx)
         }
-        
-        
     }
     
 
     func getBy(id: String) -> Video? {
         
         let context = Thread.isMainThread ? self.mainContext : self.privateContext
-        let findFetchRequest = self.persitentContainer?.managedObjectModel.fetchRequestFromTemplate(withName: "getById", substitutionVariables: ["id" : id])
+        let findFetchRequest = self.persistentContainer.managedObjectModel.fetchRequestFromTemplate(withName: "getById", substitutionVariables: ["id" : id])
         
         var result: Video?
 
@@ -113,9 +116,6 @@ class CoreDataDAO: PlayListRepositoryConformable  {
         }
         return result
     }
-    
-    
-    
     
     
     private func saveContext (context :NSManagedObjectContext) {
