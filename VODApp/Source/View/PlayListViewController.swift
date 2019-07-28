@@ -9,7 +9,9 @@
 import Foundation
 import ISHPullUp
 
-class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PlayListViewModelEvents, PlayerSwipeGestureConformable {
+class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPullUpStateDelegate,
+UICollectionViewDataSource, UICollectionViewDelegate, PlayListViewModelEvents,
+PlayerSwipeGestureConformable {
     
     /// Reference to videoPlayer from mainView
     weak var videoPlayerView: VersaPlayerView?
@@ -56,6 +58,7 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidAppear(animated)
         firstAppearanceCompleted = true;
         self.topView.addSubview(videoPlayerView!.controls!)
@@ -67,6 +70,7 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
     //MARK: - UI actions
     @objc
     private func handleTapGesture(gesture: UITapGestureRecognizer) {
+        
         if pullUpController.isLocked {
             return
         }
@@ -79,6 +83,7 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
     }
     
     func handleSwipe(direction: UISwipeGestureRecognizer.Direction) {
+        
         if let nextVideo = viewModel.nextVideo(inPlayer: self.videoPlayerView!) {
             self.videoPlayerView?.set(item: nextVideo)
             handleView.isHidden = true
@@ -87,17 +92,20 @@ class PlayListViewController: UIViewController, ISHPullUpSizingDelegate, ISHPull
     
     //MARK: - PlayListViewModelEvents
     func didUpdate() {
+        
         self.collectionView.reloadData()
     }
     
     //MARK: - static methods
     class func fromStoryboard() -> PlayListViewController {
+        
         let sb = UIStoryboard(name: Storyboard.nameIdentifier.main.rawValue, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: PlayListViewController.storyboardidentifier())
         return vc as! PlayListViewController
     }
     
     static func storyboardidentifier() -> String {
+        
         return String(describing: PlayListViewController.self)
     }
 }

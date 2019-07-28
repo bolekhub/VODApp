@@ -24,13 +24,11 @@
 		0758528822E5CC07008CE1E1 /* DServiceSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758528722E5CC07008CE1E1 /* DServiceSessionDelegate.swift */; };
 		07695F8C22EAD919000E0E9D /* PlayListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07695F8B22EAD919000E0E9D /* PlayListItem.swift */; };
 		07695F9022EAE460000E0E9D /* VideModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07695F8F22EAE460000E0E9D /* VideModelTest.swift */; };
+		07695F9222EDA891000E0E9D /* capture-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07695F9122EDA891000E0E9D /* capture-1.png */; };
+		07695F9522EDAE4C000E0E9D /* capture-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 07695F9422EDAE4C000E0E9D /* capture-2.png */; };
 		07EA71C422E76B2500B14A60 /* OneSignal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EA71C322E76B2400B14A60 /* OneSignal.framework */; };
 		07EA71C522E76B2500B14A60 /* OneSignal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07EA71C322E76B2400B14A60 /* OneSignal.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		07EA71CE22E79B2200B14A60 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71CD22E79B2200B14A60 /* String+Helper.swift */; };
-		07EA71D022E79B3D00B14A60 /* Notification+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71CF22E79B3D00B14A60 /* Notification+Constants.swift */; };
 		07EA71D222E79B6E00B14A60 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D122E79B6E00B14A60 /* UIColor+Helpers.swift */; };
-		07EA71D422E79C0F00B14A60 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D322E79C0F00B14A60 /* Fonts.swift */; };
-		07EA71D622E79C6400B14A60 /* UIFont+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D522E79C6400B14A60 /* UIFont+Types.swift */; };
 		07EA71D822E79CC800B14A60 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D722E79CC800B14A60 /* Color.swift */; };
 		07EA71DA22E79D5A00B14A60 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71D922E79D5A00B14A60 /* Constants.swift */; };
 		07EA71DE22E79F8200B14A60 /* AppDelegate+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA71DD22E79F8200B14A60 /* AppDelegate+Push.swift */; };
@@ -115,13 +113,11 @@
 		0758528722E5CC07008CE1E1 /* DServiceSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DServiceSessionDelegate.swift; sourceTree = "<group>"; };
 		07695F8B22EAD919000E0E9D /* PlayListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListItem.swift; sourceTree = "<group>"; };
 		07695F8F22EAE460000E0E9D /* VideModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideModelTest.swift; sourceTree = "<group>"; };
+		07695F9122EDA891000E0E9D /* capture-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capture-1.png"; sourceTree = "<group>"; };
+		07695F9422EDAE4C000E0E9D /* capture-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capture-2.png"; sourceTree = "<group>"; };
 		07EA71C322E76B2400B14A60 /* OneSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneSignal.framework; path = Carthage/Build/iOS/OneSignal.framework; sourceTree = "<group>"; };
 		07EA71C822E76B9100B14A60 /* VODApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VODApp.entitlements; sourceTree = "<group>"; };
-		07EA71CD22E79B2200B14A60 /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
-		07EA71CF22E79B3D00B14A60 /* Notification+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Constants.swift"; sourceTree = "<group>"; };
 		07EA71D122E79B6E00B14A60 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
-		07EA71D322E79C0F00B14A60 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		07EA71D522E79C6400B14A60 /* UIFont+Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Types.swift"; sourceTree = "<group>"; };
 		07EA71D722E79CC800B14A60 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		07EA71D922E79D5A00B14A60 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		07EA71DD22E79F8200B14A60 /* AppDelegate+Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
@@ -279,6 +275,7 @@
 		0758527C22E5BBBE008CE1E1 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				07695F9322EDA895000E0E9D /* screenshots */,
 				07EA71CC22E796E700B14A60 /* Fonts */,
 				0758527D22E5BBDB008CE1E1 /* playlist.json */,
 				0758527E22E5BC08008CE1E1 /* payload.json */,
@@ -302,13 +299,19 @@
 			name = Container;
 			sourceTree = "<group>";
 		};
+		07695F9322EDA895000E0E9D /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				07695F9422EDAE4C000E0E9D /* capture-2.png */,
+				07695F9122EDA891000E0E9D /* capture-1.png */,
+			);
+			name = screenshots;
+			sourceTree = "<group>";
+		};
 		07EA71C922E796A900B14A60 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				07EA71CD22E79B2200B14A60 /* String+Helper.swift */,
-				07EA71CF22E79B3D00B14A60 /* Notification+Constants.swift */,
 				07EA71D122E79B6E00B14A60 /* UIColor+Helpers.swift */,
-				07EA71D522E79C6400B14A60 /* UIFont+Types.swift */,
 				07EA71DD22E79F8200B14A60 /* AppDelegate+Push.swift */,
 				07EA722C22E8A95200B14A60 /* AVAsset+Helpers.swift */,
 				07EA723022E8DF9200B14A60 /* UIView+Borders.swift */,
@@ -327,7 +330,6 @@
 		07EA71CB22E796C300B14A60 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				07EA71D322E79C0F00B14A60 /* Fonts.swift */,
 				07EA71D722E79CC800B14A60 /* Color.swift */,
 			);
 			path = Common;
@@ -563,6 +565,8 @@
 			files = (
 				0758525222E5A2F3008CE1E1 /* LaunchScreen.storyboard in Resources */,
 				0758524F22E5A2F3008CE1E1 /* Assets.xcassets in Resources */,
+				07695F9222EDA891000E0E9D /* capture-1.png in Resources */,
+				07695F9522EDAE4C000E0E9D /* capture-2.png in Resources */,
 				0758524A22E5A2F2008CE1E1 /* Main.storyboard in Resources */,
 				0758528022E5BD9C008CE1E1 /* playlist.json in Resources */,
 			);
@@ -608,12 +612,10 @@
 			files = (
 				07EA722722E89AFD00B14A60 /* PlayListViewModel.swift in Sources */,
 				07EA721522E7D58D00B14A60 /* VersaPlayerRenderingView.swift in Sources */,
-				07EA71D022E79B3D00B14A60 /* Notification+Constants.swift in Sources */,
 				07EA720E22E7D58D00B14A60 /* VersaTimeLabel.swift in Sources */,
 				07EA721422E7D58D00B14A60 /* VersaPlayerPlaybackError.swift in Sources */,
 				0758524722E5A2F2008CE1E1 /* MainViewController.swift in Sources */,
 				07EA721222E7D58D00B14A60 /* VersaPlayerControlsCoordinator.swift in Sources */,
-				07EA71D422E79C0F00B14A60 /* Fonts.swift in Sources */,
 				0758528422E5CB42008CE1E1 /* DownloadService.swift in Sources */,
 				0758527622E5AA06008CE1E1 /* ACSimulatorRemoteNotificationsService.m in Sources */,
 				07EA721922E7D58D00B14A60 /* VersaPlayerMediaTrack.swift in Sources */,
@@ -621,9 +623,7 @@
 				07EA722B22E8A0D400B14A60 /* VideoCell.swift in Sources */,
 				07EA721C22E7D58D00B14A60 /* VersaPlayerItem.swift in Sources */,
 				0758524522E5A2F2008CE1E1 /* AppDelegate.swift in Sources */,
-				07EA71D622E79C6400B14A60 /* UIFont+Types.swift in Sources */,
 				07EA71DA22E79D5A00B14A60 /* Constants.swift in Sources */,
-				07EA71CE22E79B2200B14A60 /* String+Helper.swift in Sources */,
 				07EA71D822E79CC800B14A60 /* Color.swift in Sources */,
 				07EA722522E861A700B14A60 /* ContainerViewController.swift in Sources */,
 				07EA71E322E7A72400B14A60 /* CoreDataDAO.swift in Sources */,

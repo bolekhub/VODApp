@@ -8,7 +8,9 @@
 
 import Foundation
 
+/// viewmodel feedback events.
 protocol PlayListViewModelEvents: class {
+    /// after updating the dataset
     func didUpdate()
 }
 
