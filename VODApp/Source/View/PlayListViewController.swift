@@ -53,7 +53,8 @@ PlayerSwipeGestureConformable {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         topView.addGestureRecognizer(tapGesture)
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshData),
+                                               name: UIApplication.didBecomeActiveNotification, object: nil)
 
     }
     
@@ -118,7 +119,8 @@ extension PlayListViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifiers.videoList.cell.rawValue, for: indexPath) as! VideoCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifiers.videoList.cell.rawValue,
+                                                      for: indexPath) as! VideoCell
         viewModel.configureCell(cell: cell, atIndexPath: indexPath)
         return cell
     }
@@ -136,11 +138,15 @@ extension PlayListViewController {
 //MARK: - ISHPullUpSizingDelegate, ISHPullUpStateDelegate
  extension PlayListViewController {
     
-    func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, minimumHeightForBottomViewController bottomVC: UIViewController) -> CGFloat {
+    func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, minimumHeightForBottomViewController
+        bottomVC: UIViewController) -> CGFloat {
+        
         return topView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height + 50;
     }
     
-    func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, maximumHeightForBottomViewController bottomVC: UIViewController, maximumAvailableHeight: CGFloat) -> CGFloat {
+    func pullUpViewController(_ pullUpViewController: ISHPullUpViewController,
+                              maximumHeightForBottomViewController bottomVC: UIViewController,
+                              maximumAvailableHeight: CGFloat) -> CGFloat {
         let totalHeight = rootView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         
         // we allow the pullUp to snap to the half way point
@@ -150,7 +156,9 @@ extension PlayListViewController {
         return maximumAvailableHeight - 50.0
     }
     
-    func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, targetHeightForBottomViewController bottomVC: UIViewController, fromCurrentHeight height: CGFloat) -> CGFloat {
+    func pullUpViewController(_ pullUpViewController: ISHPullUpViewController,
+                              targetHeightForBottomViewController bottomVC: UIViewController,
+                              fromCurrentHeight height: CGFloat) -> CGFloat {
         if abs(height - halfWayPoint) < 30 {
             return halfWayPoint
         }
@@ -159,11 +167,8 @@ extension PlayListViewController {
         return height
     }
     
-    func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, update edgeInsets: UIEdgeInsets, forBottomViewController contentVC: UIViewController) {
-        // we update the scroll view's content inset
-        // to properly support scrolling in the intermediate states
-        //scrollView.contentInset = edgeInsets;
-    }
+    func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, update edgeInsets: UIEdgeInsets,
+                              forBottomViewController contentVC: UIViewController) {}
     
     func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, didChangeTo state: ISHPullUpState) {
         

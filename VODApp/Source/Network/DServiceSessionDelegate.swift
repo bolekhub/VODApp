@@ -82,7 +82,8 @@ class DSSessionDelegate: NSObject, URLSessionDelegate, URLSessionTaskDelegate, U
     
     
     //MARK: - URLSessionDownloadDelegate
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64,
+                    totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         
         let written  = ByteCountFormatter.string(fromByteCount: totalBytesWritten, countStyle: .file)
         let total  = ByteCountFormatter.string(fromByteCount: totalBytesExpectedToWrite, countStyle: .file)

@@ -27,8 +27,10 @@ class ContainerViewController: ISHPullUpViewController {
     private func commonInit() {
         self.dimmingColor = nil
         let storyboard = UIStoryboard(name: Storyboard.nameIdentifier.main.rawValue, bundle: nil)
-        let mainContentVC = storyboard.instantiateViewController(withIdentifier: MainViewController.storyboardidentifier()) as! MainViewController
-        let bottomVC = storyboard.instantiateViewController(withIdentifier: PlayListViewController.storyboardidentifier()) as! PlayListViewController
+        let mainContentVC =
+        storyboard.instantiateViewController(withIdentifier: MainViewController.storyboardidentifier()) as! MainViewController
+        let bottomVC =
+        storyboard.instantiateViewController(withIdentifier: PlayListViewController.storyboardidentifier()) as! PlayListViewController
         
         mainViewController = mainContentVC
         playListViewController = bottomVC

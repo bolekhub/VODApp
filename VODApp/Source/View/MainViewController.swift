@@ -29,7 +29,8 @@ class MainViewController: UIViewController, ISHPullUpContentDelegate {
     
     
     //MARK: - ISHPullUpContentDelegate
-    func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, update edgeInsets: UIEdgeInsets, forContentViewController contentVC: UIViewController) {
+    func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, update edgeInsets: UIEdgeInsets,
+                              forContentViewController contentVC: UIViewController) {
         
         if #available(iOS 11.0, *) {
             additionalSafeAreaInsets = edgeInsets

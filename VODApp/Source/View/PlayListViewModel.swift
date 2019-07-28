@@ -74,7 +74,8 @@ class PlayListViewModel {
         cell.configureCell(with: videoItem)
     }
 
-    /// convert data in the model passed to an object that VersaPlayerView can handle to be played. It also update the title and subtitle of the played video.
+    /// convert data in the model passed to an object that VersaPlayerView can handle to be played.
+    /// It also update the title and subtitle of the played video.
     ///
     /// - Parameters:
     ///   - modelItem: PlayListItem
@@ -101,7 +102,8 @@ class PlayListViewModel {
     }
     
     
-    /// pop a new video form the videos array. When all videos are played it start over by first. It configure the item to be played and title, subtitle as well
+    /// pop a new video form the videos array. When all videos are played it start over by first.
+    /// It configure the item to be played and title, subtitle as well
     ///
     /// - Parameter player: VersaPlayerItem
     /// - Returns: VersaPlayerItem

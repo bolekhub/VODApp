@@ -9,7 +9,8 @@
 import Foundation
 import CoreData
 
-/// specific implementation to save items with coreData. Due to persistent container must be the same along all app. This class representing coredata storage its a singleton.
+/// specific implementation to save items with coreData. Due to persistent container must be
+/// the same along all app. This class representing coredata storage its a singleton.
 class CoreDataDAO: PlayListRepositoryConformable  {
 
     /// singleton instance
@@ -86,17 +87,19 @@ class CoreDataDAO: PlayListRepositoryConformable  {
     func getBy(id: String) -> Video? {
         
         let context = Thread.isMainThread ? self.mainContext : self.privateContext
-        let findFetchRequest = self.persistentContainer.managedObjectModel.fetchRequestFromTemplate(withName: "getById", substitutionVariables: ["id" : id])
-        
+        let findFetchRequest =
+        self.persistentContainer.managedObjectModel.fetchRequestFromTemplate(withName: "getById",
+                                                                    substitutionVariables: ["id" : id])
         var result: Video?
-
         do {
+            
             let fetch_result = try context?.fetch(findFetchRequest!) as? [Video]
             guard !(fetch_result?.isEmpty)! else {
                 return nil
             }
             result = fetch_result?.first
         } catch {
+            
             print("A problem occured while getting entity. Error : \(error)")
         }
         
@@ -142,8 +145,6 @@ class CoreDataDAO: PlayListRepositoryConformable  {
                 do {
                     try context.save()
                 } catch {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                     let nserror = error as NSError
                     fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
                 }
