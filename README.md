@@ -1,5 +1,7 @@
 # VODApp
 
+![](https://github.com/bolekhub/VODApp/blob/master/VODApp/Resource/capture-2.png)
+
 The project illustrate an approach to handle a push notification having in the payload a list of media items to be downloaded on background. Its not necesary handle all app states (foreground, suspended, or even terminated by the system). Declaring the background modes, push notification its enought. 
 
 >Apps that declare appropriate background modes can use default URL sessions and data tasks, just as if they were in the foreground.`
