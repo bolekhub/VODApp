@@ -43,6 +43,9 @@ In an effort to comply with apple policy about background task :
 
 >As soon as you finish processing the notification, you must call the block in the handler parameter or your app will be terminated. Your app has up to 30 seconds of wall-clock time to process the notification and call the specified completion handler block. In practice, you should call the handler block as soon as you are done processing the notification. The system tracks the elapsed time, power usage, and data costs for your app’s background downloads. Apps that use significant amounts of power when processing remote notifications may not always be woken up early to process future notifications.
 
-videos that weight more than *20 Mb* will be discarded.
+videos that weight more than *20 Mb* will be discarded. If you note the app its taking too long firing the local notification. remove from the josn payload any file beyond mentioned limit and report the bug. :-)
 
 Once al task have been downloaded. the app send a local notification informing the user about new content. 
+
+---
+The project include a library to test remote notifications on simulator . See more details how to send the payload [here](https://github.com/acoomans/SimulatorRemoteNotifications)
